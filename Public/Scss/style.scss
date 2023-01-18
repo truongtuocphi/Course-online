@@ -9,7 +9,12 @@
 @import "./_variables";
 
 a {
+    color: $colorText;
     text-decoration: none;
+}
+
+.show {
+    display: block !important;
 }
 
 body {
@@ -159,6 +164,7 @@ body {
                     }
                 }
                 .dropdown-profiles {
+                    display: none;
                     position: absolute;
                     left: -245px;
                     top: 45px;
@@ -193,6 +199,7 @@ body {
                                 font-size: 12px;
                                 font-weight: 500;
                                 margin-top: 1px;
+                                opacity: 80%;
                             }
                         }
                         &:hover {
@@ -212,9 +219,25 @@ body {
                         &_content {
                             font-size: 14px;
                             font-weight: 550;
+                            opacity: 80%;
                         }
                         &:hover {
                             cursor: pointer;
+                            background-color: $bg_profiles_hover;
+                        }
+                    }
+                    &-custom {
+                        padding: 4px 6px;
+                        display: flex;
+                        align-items: center;
+                        border-radius: 8px;
+                        &_content {
+                            color: #565555;
+                            opacity: 85%;
+                            font-size: 15px;
+                            font-weight: 600;
+                        }
+                        &:hover {
                             background-color: $bg_profiles_hover;
                         }
                     }
