@@ -25,7 +25,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 30px 0 30px;
+    padding: 0 30px 0 17px;
     background-color: $bg_header;
     &-left-slide {
         display: flex;
@@ -251,6 +251,47 @@ body {
                         height: 34px;
                         padding: 6px;
                         margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.list-menu {
+    width: 300px;
+    background-color: $bg_body;
+    border-right: 1px solid #E5E7EB;
+    padding: 0 12px 0 12px;
+    ul {
+        padding: 13px 0 10px 0;
+        li {
+            list-style: none;
+            padding: 10px 12px;
+            margin-bottom: 4px;
+            a {
+                display: flex;
+                align-items: center;
+                svg {
+                    width: 26px;
+                    height: 26px;
+                    margin-right: 10px;
+                }
+                .content {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: $colorTextMenu;
+                    opacity: 80%;
+                }
+                .btn-see-more {
+                    svg {
+                        width: 26px;
+                        height: 26px;
+                        padding: 2px;
+                        border-radius: 50%;
+                        background-color: $bg_profiles_hover;
+                        margin-right: 8px;
                     }
                 }
             }
