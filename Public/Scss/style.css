@@ -10,8 +10,12 @@ a {
   text-decoration: none;
 }
 
-.show {
-  display: block !important;
+.active {
+  background-color: #EAECFA;
+  border-radius: 10px;
+}
+.active a .content {
+  color: #2a41e8 !important;
 }
 
 body {
@@ -24,6 +28,9 @@ body {
   justify-content: space-between;
   padding: 0 30px 0 17px;
   background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 .header-left-slide {
   display: flex;
@@ -253,9 +260,28 @@ body {
 
 .list-menu {
   width: 300px;
+  max-height: 90%;
   background-color: #F9FAFB;
   border-right: 1px solid #E5E7EB;
   padding: 0 12px 0 12px;
+  margin-top: 65px;
+  position: fixed;
+  overflow-y: scroll;
+  transition: all 0.4s ease-in-out;
+}
+.list-menu::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+.list-menu:hover {
+  overflow-y: scroll;
+}
+.list-menu:hover::-webkit-scrollbar {
+  width: 6px;
+}
+.list-menu:hover::-webkit-scrollbar-thumb {
+  background-color: #E5E5E6;
+  border-radius: 10px;
 }
 .list-menu ul {
   padding: 13px 0 10px 0;
@@ -264,15 +290,21 @@ body {
   list-style: none;
   padding: 10px 12px;
   margin-bottom: 4px;
+  z-index: 2;
 }
 .list-menu ul li a {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  gap: 10px;
 }
 .list-menu ul li a svg {
   width: 26px;
   height: 26px;
-  margin-right: 10px;
+}
+@media screen and (max-width: 80px) {
+  .list-menu ul li a svg {
+    margin-right: 0;
+  }
 }
 .list-menu ul li a .content {
   font-weight: 600;
@@ -288,6 +320,91 @@ body {
   border-radius: 50%;
   background-color: #f3f4f6;
   margin-right: 8px;
+}
+.list-menu ul li:hover {
+  cursor: pointer;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+}
+.list-menu ul li:hover .content {
+  color: #2a41e8;
+}
+.list-menu-contacts-title {
+  padding: 12px 12px 0 12px;
+  margin: 12px 2px 0 2px;
+  border-top: 1px solid #E5E7EB;
+  color: #333;
+  opacity: 70%;
+}
+.list-menu-contacts-friend {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+}
+.list-menu-contacts-friend-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.list-menu-contacts-friend-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.list-menu-contacts-friend-name {
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 70%;
+}
+.list-menu-contacts-friend__page {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.list-menu-contacts-friend__page svg {
+  width: 25px;
+  height: 25px;
+  fill: #585757;
+}
+.list-menu-contacts-friend__page-title {
+  color: #585757;
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 85%;
+}
+.list-menu-contacts-friend__page #down {
+  position: absolute;
+  margin-right: 0;
+  right: 10px;
+  fill: #585757;
+}
+
+.show {
+  display: block !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.collapse-menu {
+  width: 80px;
+}
+
+.atc-avatar {
+  margin-right: 0;
+}
+
+.items-menu {
+  margin-right: 0;
+}
+
+.changeWidthAvatar {
+  width: 45px !important;
 }
 
 /*# sourceMappingURL=style.css.map */
