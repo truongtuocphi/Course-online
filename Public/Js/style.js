@@ -30,7 +30,7 @@ for (let index = 0; index < menu.length; index++) {
 let btnMenu = document.querySelector('#btn-menu');
 let hiddenElement = document.querySelectorAll('.title-menu');
 
-btnMenu.addEventListener('mouseup', (e) => {
+btnMenu.addEventListener('mouseup', () => {
     let menu = document.querySelector('.list-menu');
 
     hiddenElement.forEach((item) => {
