@@ -435,6 +435,7 @@ body {
   padding: 0 20px;
   background-color: #2563eb;
   border-radius: 8px;
+  cursor: pointer;
 }
 .main-content_box-content-header-button-create svg {
   width: 20px;
@@ -442,15 +443,13 @@ body {
   fill: white;
 }
 .main-content_box-content-header-button-create-content {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   font-size: 15px;
   margin-left: 6px;
   line-height: 16px;
   color: white;
-}
-.main-content_box-content-header-button-create:hover {
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
