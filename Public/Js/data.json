@@ -1,3 +1,76 @@
 {
-    
+    "Course":
+    [
+        {
+            "ID": "001",
+            "nameCourse": "HTML CSS từ Zero đến hero",
+            "img": "Public/Picture/banner001.png",
+            "numberOfUser": "96966"
+        },
+        {
+            "ID": "002",
+            "nameCourse": "Kiến Thức Nhập Môn IT",
+            "img": "Public/Picture/banner002.png",
+            "numberOfUser": "14528"
+        },
+        {
+            "ID": "003",
+            "nameCourse": "Lập Trình JavaScript Cơ Bản",
+            "img": "Public/Picture/banner003.png",
+            "numberOfUser": "45806"
+        },
+        {
+            "ID": "004",
+            "nameCourse": "Làm việc với Terminal & Ubuntu",
+            "img": "Public/Picture/banner004.png",
+            "numberOfUser": "12345"
+        },
+        {
+            "ID": "005",
+            "nameCourse": "Responsive Với Grid System",
+            "img": "Public/Picture/banner005.png",
+            "numberOfUser": "32145"
+        },
+        {
+            "ID": "006",
+            "nameCourse": "Lập Trình JavaScript Nâng Cao",
+            "img": "Public/Picture/banner006.png",
+            "numberOfUser": "42584"
+        },
+        {
+            "ID": "007",
+            "nameCourse": "Xây Dựng Website với ReactJS",
+            "img": "Public/Picture/banner007.png",
+            "numberOfUser": "40616"
+        },
+        {
+            "ID": "008",
+            "nameCourse": "Node & ExpressJS",
+            "img": "Public/Picture/banner008.png",
+            "numberOfUser": "85424"
+        }
+    ],
+
+    "videoClassification":
+    [
+
+    ],
+
+    "user":
+    [
+        {
+            "username": "Admin",
+            "email": "admin123@gmail.com",
+            "account": "admin",
+            "password": "123",
+            "avater": "Public/Picture/avatar-1.jpg"
+        },
+        {
+            "username": "user001",
+            "email": "admin123@gmail.com",
+            "account": "Stella Johnson",
+            "password": "123",
+            "avater": "Public/Picture/avatar-1.jpg"
+        }
+    ]
 }

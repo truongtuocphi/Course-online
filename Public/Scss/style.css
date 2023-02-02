@@ -409,12 +409,63 @@ body {
 }
 
 .main-content {
-  padding-top: 65px;
   margin-left: 300px;
+  padding: 65px 35px;
+}
+.main-content-banner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 270px;
+  margin-top: 25px;
+  border-radius: 20px;
+  background-color: #2877FA;
+  background: linear-gradient(to right, rgb(40, 119, 250), rgb(103, 23, 205));
+  padding-left: 35px;
+  overflow: hidden;
+}
+.main-content-banner-left {
+  width: 60%;
+  color: white;
+}
+.main-content-banner-left-header {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.main-content-banner-left-main {
+  font-size: 16px;
+  margin-bottom: 24px;
+  line-height: 27px;
+}
+.main-content-banner-left-button button {
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 16px;
+  color: white;
+  min-width: 124px;
+  height: 34px;
+  padding: 4px 10px;
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 2px solid white;
+  transition: all 0.4s ease-in-out;
+}
+.main-content-banner-left-button button:hover {
+  background-color: white;
+  color: #2877FA;
+}
+.main-content-banner-right {
+  width: 40%;
+}
+.main-content-banner-right img {
+  width: 100%;
 }
 .main-content_box-content {
   width: 100%;
-  padding: 30px 35px;
+  padding: 30px 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -422,6 +473,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 .main-content_box-content-header_title {
   font-size: 24px;
@@ -450,6 +502,43 @@ body {
   margin-left: 6px;
   line-height: 16px;
   color: white;
+}
+.main-content_box-content-inContent {
+  width: 100%;
+}
+.main-content_box-content-inContent-home {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.main-content_box-content-inContent-home-listCourse-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 11px 0;
+  opacity: 80%;
+}
+.main-content_box-content-inContent-home-listCourse-pic {
+  width: 100%;
+  height: 130px;
+}
+.main-content_box-content-inContent-home-listCourse-pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+.main-content_box-content-inContent-home-listCourse-user {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.main-content_box-content-inContent-home-listCourse-user-icon svg {
+  width: 17px;
+  color: #666;
+}
+.main-content_box-content-inContent-home-listCourse-user span {
+  font-size: 14px;
+  color: #666;
 }
 
 /*# sourceMappingURL=style.css.map */
