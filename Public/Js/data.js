@@ -18,7 +18,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);  
 
 var Categories = document.querySelector('#list-course');
-var database = firebase.database();
+// var database = firebase.database();
 var data = firebase.database().ref().child('Course');
 
 data.on('value', (snap) => {
@@ -28,6 +28,11 @@ data.on('value', (snap) => {
         `<div class="main-content_box-content-inContent-home-listCourse">
             <div class="main-content_box-content-inContent-home-listCourse-pic">
                 <img src="${course[key].img}" alt="">
+                <div class="main-content_box-content-inContent-home-listCourse-pic__button">
+                    <a href="/Course online/Public/Page/course.html?atc=${course[key].ID}">    
+                        <button onclick="check(this)">View Course</button>
+                    </a>
+                </div>
             </div>
             <div class="main-content_box-content-inContent-home-listCourse-title">
                 ${course[key].nameCourse}

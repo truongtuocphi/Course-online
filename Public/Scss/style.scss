@@ -29,6 +29,13 @@ a {
 
 body {
     background-color: $bg_body;
+    &::-webkit-scrollbar {
+        width: 9px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #d1d1d1;
+        border-radius: 10px;
+    }
 }
 
 .header {
@@ -149,6 +156,8 @@ body {
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        border-radius: 50%;
+                        cursor: pointer;
                         svg {
                             width: 22px;
                             height: 23px;
@@ -157,7 +166,7 @@ body {
                         .avatar {
                             width: 38px;
                             height: 38px;
-                            border-radius: 100%;
+                            border-radius: 50%;
                         }
                     }
                     span {
@@ -549,9 +558,51 @@ body {
                         opacity: 80%;
                     }
                     &-pic {
+                        position: relative;
                         width: 100%;
                         height: 130px;
+                        overflow: hidden;
                         // object-fit: cover;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 60px;
+                            left: 0;
+                            width: inherit;
+                            height: 100%;
+                            border-radius: 12px;
+                            background-color: rgba(0, 0, 0, 0.473);
+                            opacity: 0;
+                            transition: all 0.2s ease-out;
+                            cursor: pointer;
+                            z-index: 1;
+                        }
+                        &__button {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: 2;
+                            opacity: 0;
+                            button {
+                                cursor: pointer;
+                                width: 115px;
+                                padding: 9px 16px;
+                                background-color: white;
+                                border-radius: 50px;
+                                border: none;
+                                font-size: 13px;
+                                font-weight: 700;
+                            }
+                        }
+                        &:hover::after {
+                            cursor: pointer;
+                            top: 0;
+                            opacity: 1;
+                        }
+                        &:hover &__button  {
+                            opacity: 1;
+                        }
                         img {
                             width: 100%;
                             height: 100%;
@@ -566,6 +617,7 @@ body {
                             svg {
                                 width: 17px;
                                 color: #666;
+                                vertical-align: revert;
                             }
                         }
                         span {
@@ -575,6 +627,59 @@ body {
                     }
                 }
             }
+        }
+    }
+}
+
+//TODO Trang khóa học
+.headerCourse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    // display: flex;
+    // justify-content: space-between;
+    padding: 5px 35px 5px 35px;
+    background-color: $bg_header;
+    &-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &-back {
+            svg {
+                width: 19px;
+                height: 19px;
+            }
+        }
+        &-titleHeader {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            &-title {
+                font-size: 15px;
+                font-weight: 700;
+                opacity: 80%;
+                color: $colorTextMenu;
+            }
+        }
+    }
+    &-right {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        &:hover &-help, &:hover svg {
+            color: #050505;
+            fill: #050505;
+        }
+        svg {
+            width: 19px;
+            height: 19px;
+            color: $icon_bg;
+        }
+        &-help {
+            color: $colorTextMenu;
+            font-size: 15px;
         }
     }
 }
