@@ -23,10 +23,6 @@ a {
     }
 }
 
-@mixin name {
-
-}
-
 body {
     background-color: $bg_body;
     &::-webkit-scrollbar {
@@ -419,7 +415,11 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.rote {
+    transform: rotate(180deg);
 }
 
 .collapse-menu {
@@ -633,10 +633,12 @@ body {
 
 //TODO Trang khóa học
 .headerCourse {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    z-index: 3;
     // display: flex;
     // justify-content: space-between;
     padding: 5px 35px 5px 35px;
@@ -680,6 +682,76 @@ body {
         &-help {
             color: $colorTextMenu;
             font-size: 15px;
+        }
+    }
+}
+
+//TODO Chi tiết khóa học
+.main-course {
+    width: 100%;
+    height: 100vh;
+    padding-top: 51px;
+    display: flex;
+    &-left {
+        width: 75%;
+        // background-color: #2877FA;
+    }
+    &-right {
+        width: 25%;
+        border-left: 1px solid #E5E7EB;
+        &-listCourse {
+            &-contentLession {
+                padding: 12px 16px;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 1.4;
+                color: $colorText;
+                background-color: #E5E7EB;
+            }
+            &-boxCourse {
+                &-boxLession {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    padding: 8px 20px;
+                    background-color: #F0F2F5;
+                    &-title {
+                        font-weight: 600;
+                        opacity: 60%;
+                        line-height: 2.5;
+                        font-size: 14px;
+                    }
+                    i {
+                        transition: all 0.3 ease;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                &-contentLession {
+                    background-color: white;
+                    &-content {
+                        cursor: pointer;
+                        padding-left: 28px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        line-height: 1.8;
+                        &-title {
+                            padding: 10px 0 10px 2px;
+                            opacity: 70%;
+                        }
+                        svg {
+                            width: 16px;
+                            height: 16px;
+                            fill: #4c8ffc;
+                        }
+                        &:hover {
+                            background-color: #EAECFA;
+                        }
+                    }
+                }
+            }
         }
     }
 }

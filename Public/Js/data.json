@@ -53,7 +53,69 @@
 
     "videoClassification":
     [
-        
+        {
+            "ID": "001"
+        },
+        {
+            "ID": "002",
+            "ListCourse": 
+            [
+                {
+                    "TitleSesion": "Khái niệm kỹ thuật cần biết",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Mô Hình Client - Server là gì?",
+                            "VideoLesson": "https://www.youtube.com/embed/zoELAirXMJY"
+                        },
+                        {
+                            "LessonTitle": "Domain là gì? tên miền là gì?",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Môi trường, con người IT",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Học IT cần tố chất gì? Góc nhìn khác từ chuyên gia định hướng giáo dục",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        },
+                        {
+                            "LessonTitle": "Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?",
+                            "VideoLesson": "https://www.youtube.com/embed/CyZ_O7v62h4"
+                        },
+                        {
+                            "LessonTitle": "Trải nghiệm thực tế sau 2 tháng làm việc tại doanh nghiệp của học viên F8?",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Phương pháp, định hướng",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Phương pháp học lập trình của Admin F8?",
+                            "VideoLesson": "https://www.youtube.com/embed/DpvYHLUiZpc"
+                        },
+                        {
+                            "LessonTitle": "Làm sao để có thu nhập cao và đi xa hơn trong ngành IT?",
+                            "VideoLesson": "https://www.youtube.com/embed/oF7isq9IjZM"
+                        },
+                        {
+                            "LessonTitle": "8 lời khuyên giúp học lập trình tại F8 hiệu quả hơn!",
+                            "VideoLesson": "https://www.youtube.com/embed/IF1dd3KV84w"
+                        },
+                        {
+                            "LessonTitle": "Tại sao nên học trên website này hơn là học trên Youtube?",
+                            "VideoLesson": "https://www.youtube.com/embed/f5hbmw7Ba7c"
+                        }
+                    ]
+                }
+            ]
+        }
     ],
 
     "user":
