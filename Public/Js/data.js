@@ -70,11 +70,80 @@ if(titleCourse != undefined) {
 
     // TODO: hiện thị danh sách các bài học 
     let lessonListData = firebase.database().ref().child('videoClassification');
+    let showCourse = document.querySelector(".listCourseShow");
+    var arrayCourse;
+
     lessonListData.on('value', (snap) => {
-        snap.val().forEach(items => {
-            if(currentHref == items.ID) {
-                console.log(items.ListCourse);
+        let valueListCourse = snap.val();
+
+        for (let index = 0; index < valueListCourse.length; index++) {
+            if(currentHref == valueListCourse[index].ID) {
+                arrayCourse = valueListCourse[index].ListCourse;
+                arrayCourse.forEach(element => {
+                    // console.log(element.Video);
+                    showCourse.innerHTML += 
+                    `<div class="main-course-right-listCourse-boxCourse-boxLession">
+                        <div class="main-course-right-listCourse-boxCourse-boxLession-title">
+                            ${element.TitleSesion}
+                        </div>
+                        <i class="fa-solid fa-chevron-down iconDown"></i>
+                    </div>
+                    <div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden">
+                        <div class="main-course-right-listCourse-boxCourse-contentLession-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                            </svg>
+                            <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
+                                ${element.Video[index].LessonTitle}
+                            </div>
+                        </div>
+                    </div>`
+                    // for (let index = 0; index < element.Video.length; index++) {
+                    //     showCourse.innerHTML += 
+                    //     `
+                    //     <div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden">
+                    //         <div class="main-course-right-listCourse-boxCourse-contentLession-content">
+                    //             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
+                    //                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                    //             </svg>
+                    //             <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
+                    //                 ${element.Video[index].LessonTitle}
+                    //             </div>
+                    //         </div>
+                    //         </div>
+                    //     </div>`
+                    // }
+                });
+                // TODO: hiện thị các bài học trong mỗi section
+                const boxCourse = document.querySelector('.listCourseShow').children;
+
+                for (let index = 0; index < boxCourse.length; index++) {
+                    if(index % 2 == 0) {
+                        boxCourse[index].addEventListener('click', () => {
+                            boxCourse[index + 1].classList.toggle('hidden');
+                            boxCourse[index].lastElementChild.classList.toggle('rote');
+                        })
+                    }
+                }
+                let CountElement = document.getElementsByClassName('contentLession');
+                for (let i = 0; i < CountElement.length; i++) {
+                    for (let index = 0; index < element.Video.length; index++) {
+                        showCourse.innerHTML += 
+                        `
+                        <div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden">
+                            <div class="main-course-right-listCourse-boxCourse-contentLession-content">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                                </svg>
+                                <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
+                                    ${element.Video[index].LessonTitle}
+                                </div>
+                            </div>
+                            </div>
+                        </div>`
+                    }
+                }
             }
-        });
-    })
+        }
+    });
 }
