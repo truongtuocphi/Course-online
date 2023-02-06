@@ -54,7 +54,188 @@
     "videoClassification":
     [
         {
-            "ID": "001"
+            "ID": "001",
+            "ListCourse": 
+            [
+                {
+                    "TitleSesion": "Bắt Đầu",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Bạn sẽ làm được gì sau khóa học??",
+                            "VideoLesson": "https://www.youtube.com/embed/R6plN3FvzFY"
+                        },
+                        {
+                            "LessonTitle": "Tìm hiểu về HTML, CSS",
+                            "VideoLesson": "https://www.youtube.com/embed/zwsPND378OQ"
+                        },
+                        {
+                            "LessonTitle": "Làm quen với Dev tools",
+                            "VideoLesson": "https://www.youtube.com/embed/7BJiPyN4zZ0"
+                        },
+                        {
+                            "LessonTitle": "Cài đặt VS Code, Page Ruler extension",
+                            "VideoLesson": "https://www.youtube.com/embed/ZotVkQDC6mU"
+                        },
+                        {
+                            "LessonTitle": "Khắc phục lỗi cài đặt Page Ruler Redux",
+                            "VideoLesson": "https://www.youtube.com/embed/Cu-NtBVeX4g"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Làm quen với html",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Cấu trúc của 1 file HTML",
+                            "VideoLesson": "https://www.youtube.com/embed/LYnrFSGLCl8"
+                        },
+                        {
+                            "LessonTitle": "Comments trong HTML",
+                            "VideoLesson": "https://www.youtube.com/embed/JG0pdfdKjgQ"
+                        },
+                        {
+                            "LessonTitle": "Thẻ HTML thông dụng",
+                            "VideoLesson": "https://www.youtube.com/embed/AzmdwZ6e_aM"
+                        },
+                        {
+                            "LessonTitle": "Attribute trong HTML",
+                            "VideoLesson": "https://www.youtube.com/embed/UYpIh5pIkSA"
+                        },
+                        {
+                            "LessonTitle": "Quản lý thư mục dự án",
+                            "VideoLesson": "https://www.youtube.com/embed/TkPppGzB9ZA"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Làm quen với CSS",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Sử dụng CSS trong HTML",
+                            "VideoLesson": "https://www.youtube.com/embed/NsSsJTg29oE"
+                        },
+                        {
+                            "LessonTitle": "ID và Class",
+                            "VideoLesson": "https://www.youtube.com/embed/4J6d8cr0X48"
+                        },
+                        {
+                            "LessonTitle": "CSS selectors cơ bản",
+                            "VideoLesson": "https://www.youtube.com/embed/hzn_VKpGdTg"
+                        },
+                        {
+                            "LessonTitle": "Độ ưu tiên trong CSS",
+                            "VideoLesson": "https://www.youtube.com/embed/AgZ0PX28bnA"
+                        },
+                        {
+                            "LessonTitle": "Sử dụng biến trong CSS",
+                            "VideoLesson": "https://www.youtube.com/embed/x9fnxVTkpP4"
+                        },
+                        {
+                            "LessonTitle": "Các đơn vị trong CSS",
+                            "VideoLesson": "https://www.youtube.com/embed/pcUiTt6eBk0"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Đệm, viền và khoảng lề",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Thuộc tính padding (đệm)",
+                            "VideoLesson": "https://www.youtube.com/embed/aj-lD4XXr8A"
+                        },
+                        {
+                            "LessonTitle": "Thuộc tính border (đường viền)",
+                            "VideoLesson": "https://www.youtube.com/embed/VbzOimNAOxE"
+                        },
+                        {
+                            "LessonTitle": "Thuộc tính margin (khoảng cách lề)",
+                            "VideoLesson": "https://www.youtube.com/embed/8X48l0CK5_4"
+                        },
+                        {
+                            "LessonTitle": "Thuộc tính box-sizing",
+                            "VideoLesson": "https://www.youtube.com/embed/bv16wjxgV4U"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Thuộc tính tạo nền",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Thuộc background-image",
+                            "VideoLesson": "https://www.youtube.com/embed/OPz7Uz20XNQ"
+                        },
+                        {
+                            "LessonTitle": "Thuộc background-clip",
+                            "VideoLesson": "https://www.youtube.com/embed/hMWhvbCJIq8"
+                        },
+                        {
+                            "LessonTitle": "Thuộc tính background-size",
+                            "VideoLesson": "https://www.youtube.com/embed/8zsmGFNpqb4"
+                        },
+                        {
+                            "LessonTitle": "Thuộc tính background-origin",
+                            "VideoLesson": "https://www.youtube.com/embed/32a_fYd5zIo"
+                        },
+                        {
+                            "LessonTitle": "Thuộc tính background-position",
+                            "VideoLesson": "https://www.youtube.com/embed/R4q66obGDjs"
+                        },
+                        {
+                            "LessonTitle": "Background shorthand",
+                            "VideoLesson": "https://www.youtube.com/embed/4hf8kMSRUJI"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Thuộc vị trí",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "CSS Position relative",
+                            "VideoLesson": "https://www.youtube.com/embed/h1No10BHI5Y"
+                        },
+                        {
+                            "LessonTitle": "CSS Position absolute",
+                            "VideoLesson": "https://www.youtube.com/embed/hMWhvbCJIq8"
+                        },
+                        {
+                            "LessonTitle": "CSS position fixed",
+                            "VideoLesson": "https://www.youtube.com/embed/8zsmGFNpqb4"
+                        },
+                        {
+                            "LessonTitle": "CSS position sticky",
+                            "VideoLesson": "https://www.youtube.com/embed/32a_fYd5zIo"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Một số tricks và tips",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "CSS Position relative",
+                            "VideoLesson": "https://www.youtube.com/embed/h1No10BHI5Y"
+                        },
+                        {
+                            "LessonTitle": "CSS Position absolute",
+                            "VideoLesson": "https://www.youtube.com/embed/hMWhvbCJIq8"
+                        },
+                        {
+                            "LessonTitle": "CSS position fixed",
+                            "VideoLesson": "https://www.youtube.com/embed/8zsmGFNpqb4"
+                        },
+                        {
+                            "LessonTitle": "CSS position sticky",
+                            "VideoLesson": "https://www.youtube.com/embed/32a_fYd5zIo"
+                        }
+                    ]
+                }
+            ]
         },
         {
             "ID": "002",
@@ -110,6 +291,124 @@
                         },
                         {
                             "LessonTitle": "Tại sao nên học trên website này hơn là học trên Youtube?",
+                            "VideoLesson": "https://www.youtube.com/embed/f5hbmw7Ba7c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ID": "005",
+            "ListCourse": 
+            [
+                {
+                    "TitleSesion": "Bắt đầu",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Responsive là gì?",
+                            "VideoLesson": "https://www.youtube.com/embed/zoELAirXMJY"
+                        },
+                        {
+                            "LessonTitle": "Chúng ta sẽ làm gì?",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        },
+                        {
+                            "LessonTitle": "Chuẩn bị công cụ làm việc",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "2. Viewport, @media, breakpoint",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Khái niệm ViewPort",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        },
+                        {
+                            "LessonTitle": "Media query (@media)",
+                            "VideoLesson": "https://www.youtube.com/embed/CyZ_O7v62h4"
+                        },
+                        {
+                            "LessonTitle": "Khái niệm Breakpoints?",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        },
+                        {
+                            "LessonTitle": "Meida queries: PX, rem hay em?",
+                            "VideoLesson": "https://www.youtube.com/embed/M62l1xA5Eu8"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Thực hành nhỏ",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Học responsive qua thực hành",
+                            "VideoLesson": "https://www.youtube.com/embed/DpvYHLUiZpc"
+                        },
+                        {
+                            "LessonTitle": "Responsive navigation bar",
+                            "VideoLesson": "https://www.youtube.com/embed/oF7isq9IjZM"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Grid system",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Hệ thống lưới (Grid system)",
+                            "VideoLesson": "https://www.youtube.com/embed/DpvYHLUiZpc"
+                        },
+                        {
+                            "LessonTitle": "Grid system - phần 2",
+                            "VideoLesson": "https://www.youtube.com/embed/oF7isq9IjZM"
+                        },
+                        {
+                            "LessonTitle": "Tạo thư viện",
+                            "VideoLesson": "https://www.youtube.com/embed/IF1dd3KV84w"
+                        },
+                        {
+                            "LessonTitle": "Tạo đối tượng Grid",
+                            "VideoLesson": "https://www.youtube.com/embed/f5hbmw7Ba7c"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Áp dụng vào thực tế",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Giới thiệu chương",
+                            "VideoLesson": "https://www.youtube.com/embed/DpvYHLUiZpc"
+                        },
+                        {
+                            "LessonTitle": "Sử dụng với các website khác",
+                            "VideoLesson": "https://www.youtube.com/embed/oF7isq9IjZM"
+                        }
+                    ]
+                },
+                {
+                    "TitleSesion": "Responsive web Shopee",
+                    "Video": 
+                    [
+                        {
+                            "LessonTitle": "Những lưu ý",
+                            "VideoLesson": "https://www.youtube.com/embed/DpvYHLUiZpc"
+                        },
+                        {
+                            "LessonTitle": "Công tác chuẩn bị",
+                            "VideoLesson": "https://www.youtube.com/embed/oF7isq9IjZM"
+                        },
+                        {
+                            "LessonTitle": "Header search",
+                            "VideoLesson": "https://www.youtube.com/embed/IF1dd3KV84w"
+                        },
+                        {
+                            "LessonTitle": "Cart responsive",
                             "VideoLesson": "https://www.youtube.com/embed/f5hbmw7Ba7c"
                         }
                     ]

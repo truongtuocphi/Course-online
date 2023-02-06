@@ -13,7 +13,7 @@ const firebaseConfig = {
     storageBucket: "courseonline-3dbe5.appspot.com",
     messagingSenderId: "1013138771970",
     appId: "1:1013138771970:web:a23fc0e45fcc053984971b"
-  };
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);  
@@ -70,50 +70,70 @@ if(titleCourse != undefined) {
 
     // TODO: hiện thị danh sách các bài học 
     let lessonListData = firebase.database().ref().child('videoClassification');
-    let showCourse = document.querySelector(".listCourseShow");
-    var arrayCourse;
+    // let showCourse = document.querySelector(".listCourseShow");
 
     lessonListData.on('value', (snap) => {
         let valueListCourse = snap.val();
-
         for (let index = 0; index < valueListCourse.length; index++) {
             if(currentHref == valueListCourse[index].ID) {
-                arrayCourse = valueListCourse[index].ListCourse;
-                arrayCourse.forEach(element => {
-                    // console.log(element.Video);
-                    showCourse.innerHTML += 
-                    `<div class="main-course-right-listCourse-boxCourse-boxLession">
-                        <div class="main-course-right-listCourse-boxCourse-boxLession-title">
-                            ${element.TitleSesion}
-                        </div>
-                        <i class="fa-solid fa-chevron-down iconDown"></i>
-                    </div>
-                    <div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden">
-                        <div class="main-course-right-listCourse-boxCourse-contentLession-content">
+                var arrayCourse = valueListCourse[index].ListCourse;
+                let parentElemnt = document.querySelector("#Show-listCourse");
+                let countTitle = -1;
+                for (let index = 0; index < arrayCourse.length * 2; index++) {
+                    if(index % 2 == 0) {
+                        countTitle++
+                        parentElemnt.innerHTML +=
+                        `<div class="main-course-right-listCourse-boxCourse-boxLession">
+                            <div class="main-course-right-listCourse-boxCourse-boxLession-title">
+                                ${arrayCourse[countTitle].TitleSesion}
+                            </div>
+                            <i class="fa-solid fa-chevron-down iconDown"></i>
+                        </div>`
+                    }else {
+                        parentElemnt.innerHTML +=
+                        `<div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden"></div>`
+                    }
+                }
+                let elementCourse = document.querySelectorAll('.contentLession');
+                let count = -1;
+                for (let index = 0; index < arrayCourse.length; index++) {
+                    for (let i = 0; i < arrayCourse[index].Video.length; i++) {
+                        // console.log(i);
+                        if(i == 0) {
+                            count++;
+                        }
+                        // console.log(elementCourse[count])
+                        elementCourse[count].innerHTML +=
+                        `<div class="main-course-right-listCourse-boxCourse-contentLession-content videoLesson" value="${arrayCourse[index].Video[i].VideoLesson}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
                             </svg>
                             <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
-                                ${element.Video[index].LessonTitle}
+                                ${arrayCourse[index].Video[i].LessonTitle}
                             </div>
-                        </div>
-                    </div>`
-                    // for (let index = 0; index < element.Video.length; index++) {
-                    //     showCourse.innerHTML += 
-                    //     `
-                    //     <div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden">
-                    //         <div class="main-course-right-listCourse-boxCourse-contentLession-content">
-                    //             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
-                    //                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                    //             </svg>
-                    //             <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
-                    //                 ${element.Video[index].LessonTitle}
-                    //             </div>
-                    //         </div>
-                    //         </div>
-                    //     </div>`
-                    // }
-                });
+                        </div>`
+                        // console.log(arrayCourse[index].Video[i].VideoLesson);
+                    }
+                }
+
+                // TODO: hiện thi video ra khi click vào bài học
+                let iframeVideo = document.querySelector("#VideoLesson");
+
+                // TODO hiện thị video đầu tiên khi click vào khóa học
+                let firstVideo = elementCourse[0].firstChild.getAttribute("value");
+                iframeVideo.src = firstVideo;
+                
+                for (let index = 0; index < elementCourse.length; index++) {
+                    let arrayLesson = elementCourse[index].children;
+                    for (let i = 0; i < arrayLesson.length; i++) {
+                        arrayLesson[i].addEventListener('click', () => {
+                            console.log(arrayLesson[i].getAttribute("value"));
+                            iframeVideo.src = arrayLesson[i].getAttribute("value");
+                        })
+                    }
+                }
+
+
                 // TODO: hiện thị các bài học trong mỗi section
                 const boxCourse = document.querySelector('.listCourseShow').children;
 
@@ -123,26 +143,11 @@ if(titleCourse != undefined) {
                             boxCourse[index + 1].classList.toggle('hidden');
                             boxCourse[index].lastElementChild.classList.toggle('rote');
                         })
+                    }else if(index == 1) {
+                        boxCourse[1].classList.toggle('hidden');
+                        boxCourse[0].lastElementChild.classList.toggle('rote');
                     }
-                }
-                let CountElement = document.getElementsByClassName('contentLession');
-                for (let i = 0; i < CountElement.length; i++) {
-                    for (let index = 0; index < element.Video.length; index++) {
-                        showCourse.innerHTML += 
-                        `
-                        <div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden">
-                            <div class="main-course-right-listCourse-boxCourse-contentLession-content">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                                </svg>
-                                <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
-                                    ${element.Video[index].LessonTitle}
-                                </div>
-                            </div>
-                            </div>
-                        </div>`
-                    }
-                }
+                };
             }
         }
     });
