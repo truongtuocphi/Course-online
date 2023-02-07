@@ -133,7 +133,6 @@ if(titleCourse != undefined) {
                     }
                 }
 
-
                 // TODO: hiện thị các bài học trong mỗi section
                 const boxCourse = document.querySelector('.listCourseShow').children;
 
@@ -148,6 +147,18 @@ if(titleCourse != undefined) {
                         boxCourse[0].lastElementChild.classList.toggle('rote');
                     }
                 };
+
+                let menu = document.querySelectorAll(".btn-menu");
+
+            for (let index = 0; index < menu.length; index++) {
+                menu[index].addEventListener('click', (e) => {
+                    // xóa tất cả các class có active
+                    let menuActive = document.querySelector('.active');
+                    menuActive.classList.remove('active');
+                    // thêm class active vào phần tử đã click 
+                    menu[index].classList.add('active');
+                })
+            }
             }
         }
     });
