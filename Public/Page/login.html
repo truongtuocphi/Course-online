@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Scss/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-login">
+        <div class="header-login-logo">
+            <img src="/Course online/Public/Picture/logo.png" alt="">
+        </div>
+        <div id="blockbutton" class="header-login-button">
+            <a href="login.html" class="header-login-button-login">
+                <button id="button-login">Login</button>
+            </a>
+            <a href="#" class="header-login-button-register">
+                <button id="button-register">Register</button>
+            </a>
+        </div>
+    </header>
+    <main class="blockFrom">
+        <form action="#" id="login" class="blockFrom-infrom hidden">
+            <div class="blockFrom-infrom_title">
+                <h2>Login</h2>
+            </div>
+            <div class="blockFrom-infrom_inputForm">
+                <label for="">Username</label>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="blockFrom-infrom_inputForm">
+                <label for="">Password</label>
+                <input type="password" placeholder="*********">
+            </div>
+            <div class="blockFrom-infrom_buttonFrom">
+                <button type="button">Get Started</button>
+            </div>
+        </form>
+        <form action="#" id="register" class="blockFrom-infrom">
+            <div class="blockFrom-infrom_title">
+                <h2>Register</h2>
+            </div>
+            <div class="blockFrom-infrom_inputForm">
+                <label for="">Username</label>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="blockFrom-infrom_inputForm">
+                <label for="">Email</label>
+                <input type="email" placeholder="info@gmail.com">
+            </div>
+            <div class="blockFrom-infrom_inputForm">
+                <label for="">Password</label>
+                <input type="password" placeholder="*********">
+            </div>
+            <div class="blockFrom-infrom_inputForm">
+                <label for="">Confirm password</label>
+                <input type="password" placeholder="*********">
+            </div>
+            <div class="blockFrom-infrom_buttonFrom">
+                <button type="button">Get Started</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+<script src="https://kit.fontawesome.com/3997d60de2.js" crossorigin="anonymous"></script>
+<!-- <script src="../Js/style.js"></script> -->
+<script src="../Js/data.js"></script>

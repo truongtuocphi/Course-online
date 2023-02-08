@@ -741,4 +741,129 @@ body::-webkit-scrollbar-thumb {
   background-color: #EAECFA;
 }
 
+.header-login {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  padding: 10px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.header-login-logo {
+  width: 129px;
+}
+.header-login-logo img {
+  width: inherit;
+  height: inherit;
+}
+.header-login-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header-login-button-login {
+  width: auto;
+  height: auto;
+  padding: 5px;
+}
+.header-login-button-login button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #333;
+  opacity: 80%;
+}
+.header-login-button-register {
+  width: auto;
+  height: auto;
+}
+.header-login-button-register button {
+  cursor: pointer;
+  background-color: #8B5CF6;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  line-height: 20px;
+  padding: 10px 24px;
+}
+
+.blockFrom {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.blockFrom-infrom {
+  width: 454px;
+  padding: 48px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 1px 1px 20px rgb(233, 233, 233);
+}
+.blockFrom-infrom_title {
+  margin-bottom: 24px;
+}
+.blockFrom-infrom_title h2 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 32px;
+  opacity: 80%;
+  color: #333;
+}
+.blockFrom-infrom_inputForm {
+  margin-top: 12px;
+}
+.blockFrom-infrom_inputForm label {
+  display: block;
+  color: #666666;
+  font-size: 16px;
+  line-height: 22px;
+}
+.blockFrom-infrom_inputForm input {
+  padding: 0 20px;
+  margin-top: 8px;
+  width: 100%;
+  color: #808080;
+  background-color: #F3F4F6;
+  line-height: 46px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+.blockFrom-infrom_buttonFrom {
+  width: 100%;
+  height: 58px;
+  margin-top: 20px;
+}
+.blockFrom-infrom_buttonFrom button {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  padding: 8px;
+  background-color: #2563EB;
+  border: none;
+  font-size: 15px;
+  line-height: 22px;
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+::placeholder {
+  color: #A6A3B5;
+  font-size: 17px;
+}
+
 /*# sourceMappingURL=style.css.map */

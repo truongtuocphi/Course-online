@@ -786,3 +786,131 @@ body {
         }
     }
 }
+
+///TODO login 
+.header-login {
+    position: fixed;
+    width: 100%;
+    background-color: $bg_header;
+    padding: 10px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    &-logo {
+        width: 129px;
+        img {
+            width: inherit;
+            height: inherit;
+        }
+    }
+
+    &-button {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        &-login {
+            width: auto;
+            height: auto;
+            padding: 5px;
+            button {
+                cursor: pointer;
+                background-color: transparent;
+                border: none;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 20px;
+                color: $colorText;
+                opacity: 80%;
+            }
+        }
+        &-register {
+            width: auto;
+            height: auto;
+            button {
+                cursor: pointer;
+                background-color: #8B5CF6;
+                color: white;
+                font-weight: 600;
+                font-size: 15px;
+                border: none;
+                border-radius: 8px;
+                line-height: 20px;
+                padding: 10px 24px;
+            }
+        }
+    }
+}
+
+.blockFrom {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    &-infrom {
+        width: 454px;
+        padding: 48px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 1px 1px 20px rgb(233, 233, 233);
+        &_title {
+            margin-bottom: 24px;
+            h2 {
+                font-size: 26px;
+                font-weight: 600;
+                line-height: 32px;
+                opacity: 80%;
+                color: $colorText;
+            }
+        }
+        &_inputForm {
+            margin-top: 12px;
+            label {
+                display: block;
+                color: #666666;
+                font-size: 16px;
+                line-height: 22px;
+            }
+            input {
+                padding: 0 20px;
+                margin-top: 8px;
+                width: 100%;
+                color: #808080;
+                background-color: #F3F4F6;
+                line-height: 46px;
+                border: none;
+                border-radius: 6px;
+                outline: none;
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+        &_buttonFrom {
+            width: 100%;
+            height: 58px;
+            margin-top: 20px;
+            button {
+                cursor: pointer;
+                margin-top: 20px;
+                width: 100%;
+                padding: 8px;
+                background-color: #2563EB;
+                border: none;
+                font-size: 15px;
+                line-height: 22px;
+                color: white;
+                font-weight: 700;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+::placeholder {
+    // font-weight: 600;
+    color: #A6A3B5;
+    font-size: 17px;
+}

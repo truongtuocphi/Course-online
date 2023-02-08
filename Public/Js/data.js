@@ -163,3 +163,20 @@ if(titleCourse != undefined) {
         }
     });
 }
+
+//TODO phần login register
+let blockButton = document.querySelector("#blockbutton").children;
+
+for (let index = 0; index < blockButton.length; index++) {
+    blockButton[index].addEventListener('click', (e) => {
+        e.preventDefault();
+        let blockForm = document.querySelector('.blockFrom');
+        if(e.target.innerText == 'Login') {
+            blockForm.children[0].classList.remove('hidden');
+            blockForm.children[1].classList.add('hidden');
+        }else {
+            blockForm.children[1].classList.remove('hidden');
+            blockForm.children[0].classList.add('hidden');
+        }
+    });
+}
