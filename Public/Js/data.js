@@ -108,9 +108,7 @@ if(titleCourse != undefined) {
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
                             </svg>
-                            <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">
-                                ${arrayCourse[index].Video[i].LessonTitle}
-                            </div>
+                            <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">${arrayCourse[index].Video[i].LessonTitle}</div>
                         </div>`
                         // console.log(arrayCourse[index].Video[i].VideoLesson);
                     }
@@ -118,17 +116,20 @@ if(titleCourse != undefined) {
 
                 // TODO: hiện thi video ra khi click vào bài học
                 let iframeVideo = document.querySelector("#VideoLesson");
-
-                // TODO hiện thị video đầu tiên khi click vào khóa học
+                let title = document.querySelector("#titleTextVideo");
+                // TODO hiện thị video và tiêu đề đầu tiên khi click vào khóa học
                 let firstVideo = elementCourse[0].firstChild.getAttribute("value");
+                let firstTitle = elementCourse[0].firstChild.innerText;
+                // console.log(elementCourse[0].firstChild.children[1].innerText);
                 iframeVideo.src = firstVideo;
-                
+                title.innerHTML = firstTitle;
+
                 for (let index = 0; index < elementCourse.length; index++) {
                     let arrayLesson = elementCourse[index].children;
                     for (let i = 0; i < arrayLesson.length; i++) {
                         arrayLesson[i].addEventListener('click', () => {
-                            console.log(arrayLesson[i].getAttribute("value"));
                             iframeVideo.src = arrayLesson[i].getAttribute("value");
+                            title.innerText = arrayLesson[i].innerText;
                         })
                     }
                 }
@@ -165,18 +166,38 @@ if(titleCourse != undefined) {
 }
 
 //TODO phần login register
-let blockButton = document.querySelector("#blockbutton").children;
+if(window.location.href.split('Page/')[1] == 'login.html') {
 
-for (let index = 0; index < blockButton.length; index++) {
-    blockButton[index].addEventListener('click', (e) => {
-        e.preventDefault();
-        let blockForm = document.querySelector('.blockFrom');
-        if(e.target.innerText == 'Login') {
-            blockForm.children[0].classList.remove('hidden');
-            blockForm.children[1].classList.add('hidden');
-        }else {
-            blockForm.children[1].classList.remove('hidden');
-            blockForm.children[0].classList.add('hidden');
-        }
+    //TODO: chuyển tab login và register
+    let blockButton = document.querySelector("#blockbutton").children;
+
+    for (let index = 0; index < blockButton.length; index++) {
+        blockButton[index].addEventListener('click', (e) => {
+            e.preventDefault();
+            let blockForm = document.querySelector('.blockFrom');
+            if(e.target.innerText == 'Login') {
+                blockForm.children[0].classList.remove('hidden');
+                blockForm.children[1].classList.add('hidden');
+            }else {
+                blockForm.children[1].classList.remove('hidden');
+                blockForm.children[0].classList.add('hidden');
+            }
+        });
+    }
+
+    //TODO: xữ lý from login và register
+    let blockFrom = document.querySelectorAll('.blockFrom-infrom');
+    blockFrom.forEach(blockELement => {
+        let buttonFrom = blockELement.lastElementChild;
+        // console.log(buttonFrom);
+        buttonFrom.addEventListener('click', (e) => {
+            e.preventDefault();
+            // console.log(buttonFrom);
+            checkValueInput(buttonFrom.parentElement);
+        })
     });
+    
+    function checkValueInput(element) {
+        console.log(element.children);
+    }
 }

@@ -797,6 +797,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 60px;
+    z-index: 2;
     &-logo {
         width: 129px;
         img {
@@ -850,6 +851,7 @@ body {
     align-items: center;
     padding-top: 120px;
     padding-bottom: 60px;
+    // z-index: -1;
     &-infrom {
         width: 454px;
         padding: 48px;
@@ -864,6 +866,7 @@ body {
                 line-height: 32px;
                 opacity: 80%;
                 color: $colorText;
+                z-index: 1;
             }
         }
         &_inputForm {

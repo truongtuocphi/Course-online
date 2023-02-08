@@ -750,6 +750,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
+  z-index: 2;
 }
 .header-login-logo {
   width: 129px;
@@ -819,6 +820,7 @@ body::-webkit-scrollbar-thumb {
   line-height: 32px;
   opacity: 80%;
   color: #333;
+  z-index: 1;
 }
 .blockFrom-infrom_inputForm {
   margin-top: 12px;
