@@ -193,11 +193,33 @@ if(window.location.href.split('Page/')[1] == 'login.html') {
         buttonFrom.addEventListener('click', (e) => {
             e.preventDefault();
             // console.log(buttonFrom);
-            checkValueInput(buttonFrom.parentElement);
+            checkValueInput(buttonFrom.parentElement, e);
         })
     });
-    
+
     function checkValueInput(element) {
-        console.log(element.children);
+        let typeFrom = element.children[0].innerText;
+        if(typeFrom == "Login") {
+            let userName = element.children[1].children[1].value;
+            let password = element.children[2].children[1].value;
+            
+            if(userName == "admin" && password == '123') {
+                console.log("Login Succesfull");
+                window.location = '/Course online/Admin/admin.html'
+            };
+            dataUser("account")
+        }else {
+            console.log("Xĩu");
+        }
+    }
+
+    function dataUser(typeInput) {
+        let dataQueryUser = firebase.database().ref().child('user');
+        let user;
+        dataQueryUser.on('value', (snap) => {
+            snap.val().forEach((items) => {
+                console.log(items);
+            })
+        })
     }
 }

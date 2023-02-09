@@ -427,9 +427,9 @@
             "avater": "Public/Picture/avatar-1.jpg"
         },
         {
-            "username": "user001",
+            "username": "Stella Johnson",
             "email": "admin123@gmail.com",
-            "account": "Stella Johnson",
+            "account": "user001",
             "password": "123",
             "avater": "Public/Picture/avatar-2.jpg"
         }

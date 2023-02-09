@@ -17,7 +17,7 @@ window.onclick = (e) => {
 let menu = document.querySelectorAll(".btn-menu");
 
 for (let index = 0; index < menu.length; index++) {
-    menu[index].addEventListener('click', (e) => {
+    menu[index].addEventListener('click', () => {
         // xóa tất cả các class có active
         let menuActive = document.querySelector('.active');
         menuActive.classList.remove('active');
