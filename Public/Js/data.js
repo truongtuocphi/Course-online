@@ -222,4 +222,5 @@ if(window.location.href.split('Page/')[1] == 'login.html') {
             })
         })
     }
+    let a
 }
