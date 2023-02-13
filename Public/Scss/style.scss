@@ -891,6 +891,11 @@ body {
                 font-weight: 400;
                 font-size: 16px;
             }
+            &_noti {
+                p {
+                    color: red;
+                }
+            }
         }
         &_buttonFrom {
             width: 100%;

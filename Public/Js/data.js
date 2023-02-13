@@ -207,20 +207,30 @@ if(window.location.href.split('Page/')[1] == 'login.html') {
                 console.log("Login Succesfull");
                 window.location = '/Course online/Admin/admin.html'
             };
-            dataUser("account")
+            checkValueFrom(userName, password);
         }else {
             console.log("Xĩu");
         }
     }
 
-    function dataUser(typeInput) {
+    //TODO: check value input from user 
+    function checkValueFrom(account, password) {
         let dataQueryUser = firebase.database().ref().child('user');
-        let user;
+
         dataQueryUser.on('value', (snap) => {
-            snap.val().forEach((items) => {
-                console.log(items);
-            })
+            let arrayUser = snap.val();
+            for (let index = 0; index < arrayUser.length; index++) {
+                let dataAccount = arrayUser[index].account;
+                let dataPassword = arrayUser[index].password;
+                if(account == dataAccount && password == dataPassword) {
+                    window.location = '/Course online/index.html';
+                }
+            }
         })
     }
-    let a
+
+    //TODO: noti error from
+    function notfiError() {
+        
+    }
 }
