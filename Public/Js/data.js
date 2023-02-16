@@ -200,9 +200,10 @@ if(window.location.href.split('Page/')[1] == 'login.html') {
     function checkValueInput(element) {
         let typeFrom = element.children[0].innerText;
         if(typeFrom == "Login") {
-            let userName = element.children[1].children[1].value;
-            let password = element.children[2].children[1].value;
+            let userName = element.children[2].children[1].value;
+            let password = element.children[3].children[1].value;
             
+            //TODO: switch page Admin
             if(userName == "admin" && password == '123') {
                 console.log("Login Succesfull");
                 window.location = '/Course online/Admin/admin.html'
@@ -228,7 +229,6 @@ if(window.location.href.split('Page/')[1] == 'login.html') {
             }
         })
     }
-
     //TODO: noti error from
     function notfiError() {
         
