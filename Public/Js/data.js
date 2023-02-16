@@ -207,30 +207,56 @@ if(window.location.href.split('Page/')[1] == 'login.html') {
             if(userName == "admin" && password == '123') {
                 console.log("Login Succesfull");
                 window.location = '/Course online/Admin/admin.html'
-            };
-            checkValueFrom(userName, password);
+            }else {
+                checkValueFrom(userName, password);
+            }
         }else {
-            console.log("Xĩu");
+            let userNameRegister = element.children[2].children[1].value;
+            let accountRegister = element.children[3].children[1].value;
+            let emailRegister = element.children[4].children[1].value;
+            let passwordRegister = element.children[5].children[1].value;
+            let cfpasswordRegister = element.children[6].children[1].value;
+            checkValueRegister(userNameRegister, accountRegister, emailRegister, passwordRegister, cfpasswordRegister);
         }
     }
 
-    //TODO: check value input from user 
+    //TODO: check value input from Login user 
     function checkValueFrom(account, password) {
         let dataQueryUser = firebase.database().ref().child('user');
-
         dataQueryUser.on('value', (snap) => {
             let arrayUser = snap.val();
             for (let index = 0; index < arrayUser.length; index++) {
+                let notificationFrom = document.querySelector('#noti-from');
                 let dataAccount = arrayUser[index].account;
                 let dataPassword = arrayUser[index].password;
+                notificationFrom.classList.add('hidden');
                 if(account == dataAccount && password == dataPassword) {
                     window.location = '/Course online/index.html';
+                    break;
+                }else if(account != dataAccount) {
+                    notfiError(notificationFrom, "Incorrect account. Please try again");
+                }else if(password != dataPassword) {
+                    notfiError(notificationFrom, "Incorrect password. Please try again");
                 }
             }
         })
     }
+
+    function checkValueRegister(userName, account, email, password, cfpassword) {
+        let dataQueryUser = firebase.database().ref().child('user');
+        dataQueryUser.on('value', (snap) => {
+            let arrayUser = snap.val();
+            for (let index = 0; index < arrayUser.length; index++) {
+                let notifFromRegister = document.querySelector('#notiFromRegister');
+                let dataAccRegister = arrayUser[index].account;
+                let dataPassRegister = arrayUser[index].password;
+            }
+        })
+    }
+
     //TODO: noti error from
-    function notfiError() {
-        
+    function notfiError(element, noti) {
+        element.classList.remove('hidden');
+        return element.children[0].innerText = noti;
     }
 }
