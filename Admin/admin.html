@@ -4,9 +4,237 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Course online/Public/Scss/style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="header-left-slide">
+            <div id="btn-menu" class="header-left-slide-button-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <div class="header-left-slide-logo">
+                <a href="">
+                    <img src="/Course online/Public/Picture/logo.png" alt="logo">
+                </a>
+            </div>
+        </div>
+        <div class="header-mid-slide">
+            <div class="header-mid-slide-search">
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input type="text" placeholder="Search for Friends, Course and more...">
+            </div>
+        </div>
+        <div class="header-right-slide">
+            <!-- <div class="header-right-slide-btn">
+                <a class="header-right-slide-btn__upgrade" href="">
+                    Upgrade
+                </a>
+            </div> -->
+            <nav>
+                <ul>
+                    <li>
+                        <div href="#" class="logo">
+                            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
+                            </svg>
+                        </div>
+                        <span>3</span>
+                    </li>
+                    <li>
+                        <div href="#" class="logo">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" >
+                                <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span>4</span>
+                    </li>
+                    <li>
+                        <!-- <a href="#" class="logo"> -->
+                            <img id="profiles-user" class="avatar logo" src="/Course online/Public/Picture/avatar-2.jpg" alt="">
+                        <!-- </a> -->
+                        <div class="dropdown-profiles" id="profiles-drop">
+                            <a href="" class="dropdown-profiles-user">
+                                <div class="dropdown-profiles-user_avatar">
+                                    <img src="/Course online/Public/Picture/avatar-2.jpg" alt="">
+                                </div>
+                                <div class="dropdown-profiles-user-information">
+                                    <div class="dropdown-profiles-user-information_name">
+                                        admin
+                                    </div>
+                                    <div class="dropdown-profiles-user-information_account">
+                                        @admin
+                                    </div>
+                                </div>
+                            </a>
+                            <hr>
+                            <a href="" class="dropdown-profiles-custom">
+                                <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                                </svg>
+                                <div class="dropdown-profiles-custom_content">My Setting</div>
+                            </a>
+                            <a href="" class="dropdown-profiles-custom">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                                </svg>
+                                <div class="dropdown-profiles-custom_content">Night Mode</div>
+                            </a>
+                            <a href="/Course online/Public/Page/login.html" class="dropdown-profiles-custom">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                </svg>
+                                <div class="dropdown-profiles-custom_content">Log Out</div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <menu class="list-menu">
+        <div class="list-menu-content">
+            <ul id="box-menu">
+                <li class="btn-menu active">
+                    <a href="#" class="items-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#F59E0B" class="text-indigo-500">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+                        </svg>
+                        <span class="content title-menu">Course</span>
+                    </a>
+                </li>
+                <li class="btn-menu">
+                    <a href="#" class="items-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#2563EB" class="text-blue-600"> 
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                        </svg>
+                        <span class="content title-menu">User</span>
+                    </a>
+                </li>
+                <!-- <li class="btn-menu" >
+                    <a href="#" class="items-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#EC4899" class="text-pink-500">
+                            <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path>
+                            <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
+                        </svg>
+                        <span class="content title-menu">Blog</span>
+                    </a>
+                </li>
+                <li class="btn-menu">
+                    <a href="#" class="items-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#EF4444" class="text-red-500">
+                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2zm1-4V5h-1v2h1zM5 5v2H4V5h1zm0 4H4v2h1V9zm-1 4h1v2H4v-2z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="content title-menu">Video</span>
+                    </a>
+                </li>
+                <li class="btn-menu">
+                    <a href="#" class="items-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#10B981" class="text-pink-500">
+                            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                        </svg>
+                        <span class="content title-menu">Jobs</span>
+                    </a>
+                </li> -->
+            </ul>
+            <div class="list-menu-contacts">
+                <h3 class="list-menu-contacts-title title-menu">Pages</h3>
+                <ul>
+                    <li class="list-menu-contacts-friend__page">
+                        <svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="" d="M600.704 64a32 32 0 0130.464 22.208l35.2 109.376c14.784 7.232 28.928 15.36 42.432 24.512l112.384-24.192a32 32 0 0134.432 15.36L944.32 364.8a32 32 0 01-4.032 37.504l-77.12 85.12a357.12 357.12 0 010 49.024l77.12 85.248a32 32 0 014.032 37.504l-88.704 153.6a32 32 0 01-34.432 15.296L708.8 803.904c-13.44 9.088-27.648 17.28-42.368 24.512l-35.264 109.376A32 32 0 01600.704 960H423.296a32 32 0 01-30.464-22.208L357.696 828.48a351.616 351.616 0 01-42.56-24.64l-112.32 24.256a32 32 0 01-34.432-15.36L79.68 659.2a32 32 0 014.032-37.504l77.12-85.248a357.12 357.12 0 010-48.896l-77.12-85.248A32 32 0 0179.68 364.8l88.704-153.6a32 32 0 0134.432-15.296l112.32 24.256c13.568-9.152 27.776-17.408 42.56-24.64l35.2-109.312A32 32 0 01423.232 64H600.64zm-23.424 64H446.72l-36.352 113.088-24.512 11.968a294.113 294.113 0 00-34.816 20.096l-22.656 15.36-116.224-25.088-65.28 113.152 79.68 88.192-1.92 27.136a293.12 293.12 0 000 40.192l1.92 27.136-79.808 88.192 65.344 113.152 116.224-25.024 22.656 15.296a294.113 294.113 0 0034.816 20.096l24.512 11.968L446.72 896h130.688l36.48-113.152 24.448-11.904a288.282 288.282 0 0034.752-20.096l22.592-15.296 116.288 25.024 65.28-113.152-79.744-88.192 1.92-27.136a293.12 293.12 0 000-40.256l-1.92-27.136 79.808-88.128-65.344-113.152-116.288 24.96-22.592-15.232a287.616 287.616 0 00-34.752-20.096l-24.448-11.904L577.344 128zM512 320a192 192 0 110 384 192 192 0 010-384zm0 64a128 128 0 100 256 128 128 0 000-256z"/>
+                        </svg>
+                        <span class="list-menu-contacts-friend__page-title title-menu">Setting</span>
+                        <svg id="down" class="bg-gray-100 mr-2 p-0.5 rounded-full text-lg w-7 title-menu" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </li>
+                    <li class="list-menu-contacts-friend__page">
+                        <svg style="fill: none; stroke: #585757;" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 2L16.5 2L21 6.5V19" stroke="#585757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 20.5V6.5C3 5.67157 3.67157 5 4.5 5H14.2515C14.4106 5 14.5632 5.06321 14.6757 5.17574L17.8243 8.32426C17.9368 8.43679 18 8.5894 18 8.74853V20.5C18 21.3284 17.3284 22 16.5 22H4.5C3.67157 22 3 21.3284 3 20.5Z" stroke="#585757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 8.4V5.35355C14 5.15829 14.1583 5 14.3536 5C14.4473 5 14.5372 5.03725 14.6036 5.10355L17.8964 8.39645C17.9628 8.46275 18 8.55268 18 8.64645C18 8.84171 17.8417 9 17.6464 9H14.6C14.2686 9 14 8.73137 14 8.4Z" fill="#000000" stroke="#585757" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="list-menu-contacts-friend__page-title title-menu">Info Pages</span>
+                        <svg id="down" class="bg-gray-100 mr-2 p-0.5 rounded-full text-lg w-7 title-menu" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </li>
+                    <li class="list-menu-contacts-friend__page">
+                        <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M13,3 L5,3 L5,21 L15,21 L15,23 L5,23 C3.8954305,23 3,22.1045695 3,21 L3,3 C3,1.8954305 3.8954305,1 5,1 L15.4142136,1 L21,6.58578644 L21,14 L19,14 L19,9 L15,9 C13.8954305,9 13,8.1045695 13,7 L13,3 Z M19,19 L19,17 L21,17 L21,19 L23,19 L23,21 L21,21 L21,23 L19,23 L19,21 L17,21 L17,19 L19,19 Z M18.5857864,7 L15,3.41421356 L15,7 L18.5857864,7 Z"/>
+                        </svg>
+                        <span class="list-menu-contacts-friend__page-title title-menu">Create Content</span>
+                        <svg id="down" class="bg-gray-100 mr-2 p-0.5 rounded-full text-lg w-7 title-menu" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </li>
+                    <li class="list-menu-contacts-friend__page">
+                        <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M1.293,11.293l4-4A1,1,0,1,1,6.707,8.707L3.414,12l3.293,3.293a1,1,0,1,1-1.414,1.414l-4-4A1,1,0,0,1,1.293,11.293Zm17.414-4a1,1,0,1,0-1.414,1.414L20.586,12l-3.293,3.293a1,1,0,1,0,1.414,1.414l4-4a1,1,0,0,0,0-1.414ZM13.039,4.726l-4,14a1,1,0,0,0,.686,1.236A1.053,1.053,0,0,0,10,20a1,1,0,0,0,.961-.726l4-14a1,1,0,1,0-1.922-.548Z"/></svg>
+                        <span class="list-menu-contacts-friend__page-title title-menu">Development</span>
+                        <svg id="down" class="bg-gray-100 mr-2 p-0.5 rounded-full text-lg w-7 title-menu" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </li>
+                    <li class="list-menu-contacts-friend__page">
+                        <svg width="800px" height="800px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" >
+                            <path d="M0 0h48v48H0z" fill="none"/>
+                            <g id="Shopicon">
+                                <path d="M24,44c0,0,20-4,20-34L24,4L4,10C4,42,24,44,24,44z M24,8.176l15.928,4.779c-1.045,21.068-13.211,26.065-16.114,26.96
+                                    C21.009,39.295,9.036,35.34,8.063,12.957L24,8.176z"/>
+                                <polygon points="32.829,18 30,15.172 22,23.172 18,19.172 15.171,22 22,28.828 	"/>
+                            </g>
+                        </svg>
+                        <span class="list-menu-contacts-friend__page-title title-menu">Authentication</span>
+                        <svg id="down" class="bg-gray-100 mr-2 p-0.5 rounded-full text-lg w-7 title-menu" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </menu>
+    <div class="main-content">
+        <div id="showCourse">
+            <div class="main-content_titleAdmin">
+                <h2 class="main-content_titleAdmin_text">Course Management</h2>
+                <button class="main-content_titleAdmin-button-create">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path>
+                    </svg>
+                    <div class="main-content_titleAdmin-button-create-content">
+                        Create
+                    </div>
+                </button>
+            </div>
+            <div class="main-content_tableCourse">
+                <table border="0" id="contentTable">
+                    <!-- <tr>
+                        <td class="picture">
+                            <img src="/Course online/Public/Picture/banner001.png" alt="">
+                        </td>
+                        <td class="title">
+                            <h3>Html Css từ zero đến hero</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit totam</p>
+                        </td>
+                        <td class="buttonTable">
+                            <button class="buttonTable_detail">Chi tiết</button>
+                            <button class="buttonTable_edit">Chỉnh sửa</button>
+                        </td>
+                    </tr> -->
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+<script src="https://kit.fontawesome.com/3997d60de2.js" crossorigin="anonymous"></script>
+<script src="/Course online/Public/Js/style.js"></script>
+<script src="/Course online/Public/Js/data.js"></script>

@@ -19,7 +19,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);  
 
 // TODO: hiện danh sách các khóa học ra trang chủ
-var listCourse = document.querySelector('#list-course');
+let listCourse = document.querySelector('#list-course');
 
 if(listCourse != undefined) {
     var data = firebase.database().ref().child('Course');
@@ -27,6 +27,7 @@ if(listCourse != undefined) {
     data.on('value', (snap) => {
         var course = snap.val(); 
         for (const key in course) {
+            //TODO phần trang chủ
             listCourse.innerHTML += 
             `<div class="main-content_box-content-inContent-home-listCourse">
                 <div class="main-content_box-content-inContent-home-listCourse-pic">
@@ -49,6 +50,34 @@ if(listCourse != undefined) {
                     <span>${course[key].numberOfUser}</span>
                 </div>
             </div>`;
+        }
+    });
+}
+
+// TODO: admin
+let listCourseAdmin = document.querySelector("#contentTable");
+
+if(listCourseAdmin != undefined) {
+    var data = firebase.database().ref().child('Course');
+
+    data.on('value', (snap) => {
+        var course = snap.val(); 
+        for (const key in course) {
+            //TODO phần trang chủ
+            listCourseAdmin.innerHTML += 
+            `<tr>
+                <td class="picture">
+                    <img src="/Course online/${course[key].img}" alt="">
+                </td>
+                <td class="title">
+                    <h3>${course[key].nameCourse}</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit totam</p>
+                </td>
+                <td class="buttonTable">
+                    <button class="buttonTable_detail">Chi tiết</button>
+                    <button class="buttonTable_edit">Chỉnh sửa</button>
+                </td>
+            </tr>`;
         }
     });
 }
