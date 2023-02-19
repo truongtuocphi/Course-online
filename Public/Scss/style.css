@@ -674,7 +674,7 @@ body::-webkit-scrollbar-thumb {
 
 .model-create {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   z-index: 8;
   top: 50%;
@@ -684,15 +684,95 @@ body::-webkit-scrollbar-thumb {
 }
 .model-create-fromInput {
   position: absolute;
+  min-width: 550px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 450px;
   padding: 25px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
+.model-create-fromInput_boxType {
+  margin-top: 12px;
+}
+.model-create-fromInput_boxType-title {
+  line-height: 1.4;
+  color: #333;
+  opacity: 80%;
+  margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: 600;
+}
+.model-create-fromInput_boxType label {
+  display: block;
+  color: #333;
+  opacity: 80%;
+  font-size: 16px;
+}
+.model-create-fromInput_boxType input {
+  padding: 0 20px;
+  margin-top: 8px;
+  width: 100%;
+  color: #808080;
+  background-color: #F3F4F6;
+  line-height: 46px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+.model-create-fromInput_boxType button {
+  cursor: pointer;
+  width: 30%;
+  line-height: 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  padding: 3px 10px;
+  border: none;
+  color: white;
+  background-color: #10B981;
+}
+.model-create-fromInput_boxType_btnEdit {
+  width: 20% !important;
+  float: right;
+}
+.model-create-fromInput_contentCourse {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.model-create-fromInput_contentCourse_picture {
+  width: 220px;
+  height: 120px;
+}
+.model-create-fromInput_contentCourse_picture img {
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+}
+.model-create-fromInput_contentCourse_titleInput_title {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.model-create-fromInput_contentCourse_titleInput input {
+  padding: 0 20px;
+  margin-top: 8px;
+  width: 100%;
+  color: #808080;
+  background-color: #F3F4F6;
+  line-height: 46px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+
 .headerCourse {
   position: fixed;
   display: flex;

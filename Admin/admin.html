@@ -177,7 +177,7 @@
         <div id="showCourse">
             <div class="main-content_titleAdmin">
                 <h2 class="main-content_titleAdmin_text">Course Management</h2>
-                <button class="main-content_titleAdmin-button-create">
+                <button id="btn-create" class="main-content_titleAdmin-button-create">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path>
                     </svg>
@@ -189,22 +189,46 @@
             </div>
         </div>
     </div>
-    <!-- Model from -->
-    <div class="model-create">
+    <!-- Model create from -->
+    <div id="model-cret" class="model-create hidden">
         <form class="model-create-fromInput">
             <div class="model-create-fromInput_boxType">
                 <h2 class="model-create-fromInput_boxType-title">Create course</h2>
             </div>
             <div class="model-create-fromInput_boxType">
                 <label for="">Course name</label>
-                <input type="text">
+                <input id="nameCourse" type="text" placeholder="Name course">
             </div>
             <div class="model-create-fromInput_boxType">
                 <label for="">Course banner</label>
-                <input id="files" type="file">
+                <input id="filesCourseCreate" type="file">
             </div>
             <div class="model-create-fromInput_boxType">
-                <button>Create</button>
+                <button id="createCourse">Create</button>
+            </div>
+        </form>
+    </div>
+    <!-- Model create from -->
+    <div id="model-edit" class="model-create hidden">
+        <form class="model-create-fromInput">
+            <div class="model-create-fromInput_boxType">
+                <h2 class="model-create-fromInput_boxType-title">Edit course</h2>
+            </div>
+            <div class="model-create-fromInput_contentCourse">
+                <div class="model-create-fromInput_contentCourse_picture">
+                    <img id="pictureCourse" src="/Course online/Public/Picture/banner001.png" alt="">
+                </div>
+                <div class="model-create-fromInput_contentCourse_titleInput">
+                    <!-- <div class="model-create-fromInput_contentCourse_titleInput_title">Name course</div> -->
+                    <input id="titleCourse" type="text">
+                    <input type="file">
+                </div>
+            </div>
+            <div class="model-create-fromInput_boxType">
+                <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                    <button class="model-create-fromInput_boxType_btnEdit">Done</button>
+                    <button style="background-color: rgb(252, 105, 105);" class="model-create-fromInput_boxType_btnEdit">Delete</button>
+                </div>
             </div>
         </form>
     </div>
@@ -213,5 +237,5 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 <script src="https://kit.fontawesome.com/3997d60de2.js" crossorigin="anonymous"></script>
-<script src="/Course online/Public/Js/style.js"></script>
 <script src="/Course online/Public/Js/data.js"></script>
+<script src="/Course online/Public/Js/style.js"></script>

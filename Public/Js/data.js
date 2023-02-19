@@ -15,6 +15,8 @@ const firebaseConfig = {
     appId: "1:1013138771970:web:a23fc0e45fcc053984971b"
 };
 
+const courseAPT = {}
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);  
 
@@ -23,7 +25,6 @@ let listCourse = document.querySelector('#list-course');
 
 if(listCourse != undefined) {
     var data = firebase.database().ref().child('Course');
-    var arr = {}
     data.on('value', (snap) => {
         var course = snap.val(); 
         for (const key in course) {
@@ -75,10 +76,39 @@ if(listCourseAdmin != undefined) {
                 </td>
                 <td class="buttonTable">
                     <button class="buttonTable_detail">Chi tiết</button>
-                    <button class="buttonTable_edit">Chỉnh sửa</button>
+                    <button class="buttonTable_edit btn-edit">Chỉnh sửa</button>
                 </td>
             </tr>`;
         }
+    });
+    //TODO: thêm dữ liệu vào firebase
+    let btnCreate = document.querySelector('#createCourse');
+    let valueName = document.querySelector("#nameCourse");
+    let srcImg = document.querySelector('#filesCourseCreate');
+
+    btnCreate.addEventListener('click', (e) => {
+        e.preventDefault();
+        let countCourse = 0;
+        data.on('value', (snap) => {
+            let = courseList = snap.val();
+            for (const key in courseList) {
+                countCourse = key;
+            }
+        })
+        let idCourse = parseInt(countCourse) + 1
+        var dataUpload = firebase.database().ref('Course/' + idCourse);
+        if(idCourse != undefined && srcImg.value.split('fakepath\\')[1] != undefined) {
+            dataUpload.set({
+                ID: "00" + (parseInt(idCourse) + 1),
+                nameCourse: valueName.value,
+                img: "Public/Picture/" + srcImg.value.split('fakepath\\')[1],
+                numberOfUser: "96966"
+            })
+        }else {
+            alert("Không thể tạo mới. vui lòng thử lại");
+        }
+
+        window.location.reload();
     });
 }
 
@@ -143,9 +173,10 @@ if(titleCourse != undefined) {
                     }
                 }
 
-                // TODO: hiện thi video ra khi click vào bài học
+                // TODO: hiện thi video khi click vào bài học
                 let iframeVideo = document.querySelector("#VideoLesson");
                 let title = document.querySelector("#titleTextVideo");
+
                 // TODO hiện thị video và tiêu đề đầu tiên khi click vào khóa học
                 let firstVideo = elementCourse[0].firstChild.getAttribute("value");
                 let firstTitle = elementCourse[0].firstChild.innerText;
@@ -180,15 +211,15 @@ if(titleCourse != undefined) {
 
                 let menu = document.querySelectorAll(".btn-menu");
 
-            for (let index = 0; index < menu.length; index++) {
-                menu[index].addEventListener('click', (e) => {
-                    // xóa tất cả các class có active
-                    let menuActive = document.querySelector('.active');
-                    menuActive.classList.remove('active');
-                    // thêm class active vào phần tử đã click 
-                    menu[index].classList.add('active');
-                })
-            }
+                for (let index = 0; index < menu.length; index++) {
+                    menu[index].addEventListener('click', (e) => {
+                        // xóa tất cả các class có active
+                        let menuActive = document.querySelector('.active');
+                        menuActive.classList.remove('active');
+                        // thêm class active vào phần tử đã click 
+                        menu[index].classList.add('active');
+                    })
+                }
             }
         }
     });

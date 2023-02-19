@@ -713,7 +713,7 @@ body {
 //* model
 .model-create {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     z-index: 8;
     top: 50%;
@@ -722,16 +722,96 @@ body {
     background-color: #0000007c;
     &-fromInput {
         position: absolute;
+        min-width: 550px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        max-width: 450px;
         padding: 25px;
         border-radius: 10px;
         background-color: white;
         box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
         &_boxType {
-            
+            margin-top: 12px;
+            &-title {
+                line-height: 1.4;
+                color: $colorText;
+                opacity: 80%;
+                margin-bottom: 24px;
+                font-size: 26px;
+                font-weight: 600;
+            }
+            label {
+                display: block;
+                color: $colorText;
+                opacity: 80%;
+                font-size: 16px;
+            }
+            input {
+                padding: 0 20px;
+                margin-top: 8px;
+                width: 100%;
+                color: #808080;
+                background-color: #F3F4F6;
+                line-height: 46px;
+                border: none;
+                border-radius: 6px;
+                outline: none;
+                font-weight: 400;
+                font-size: 16px;
+            }
+            button {
+                cursor: pointer;
+                width: 30%;
+                line-height: 25px;
+                font-size: 16px;
+                border-radius: 6px;
+                padding: 3px 10px;
+                border: none;
+                color: white;
+                background-color: #10B981;
+            }
+            &_btnEdit {
+                width: 20% !important;
+                float: right;
+            }
+        }
+        //TODO: model edit
+        &_contentCourse {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            &_picture {
+                width: 220px;
+                height: 120px;
+                img {
+                    width: inherit;
+                    height: inherit;
+                    border-radius: 10px;
+                }
+            }
+            &_titleInput {
+                &_title {
+                    // opacity: 80%;
+                    color: $colorText;
+                    font-size: 18px;
+                    margin-bottom: 6px;
+                }
+                input {
+                    padding: 0 20px;
+                    margin-top: 8px;
+                    width: 100%;
+                    color: #808080;
+                    background-color: #F3F4F6;
+                    line-height: 46px;
+                    border: none;
+                    border-radius: 6px;
+                    outline: none;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+            }
         }
     }
 }

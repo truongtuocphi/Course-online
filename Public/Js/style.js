@@ -46,3 +46,70 @@ btnMenu.addEventListener('mouseup', () => {
         }
     }
 });
+
+//TODO: model create
+let modelCreate = document.querySelector('#model-cret');
+let btnCreate = document.querySelector('#btn-create');
+let bgModel = document.querySelector('.model-create');
+
+if(btnCreate) {
+    btnCreate.addEventListener('click', () => {
+        //TODO hidden scroll body
+        document.querySelector('body').style.overflow = 'hidden';
+        //TODO show model create 
+        modelCreate.classList.toggle('hidden');
+    });
+    
+    bgModel.onclick = (e) => {
+        if(e.target.matches('.model-create')) {
+            document.querySelector('body').style.overflow = 'scroll';
+            modelCreate.classList.add('hidden');
+        }
+    }
+}
+
+//TODO model edit 
+//TODO wait for the element to finish loading
+setTimeout(()=> {     
+    let listButtonEdit = document.querySelectorAll('.btn-edit');
+    let pictureElement = document.querySelector('#pictureCourse');
+    let contentElement = document.querySelector("#titleCourse");
+
+    //TODO add event click button
+    for (let index = 0; index < listButtonEdit.length; index++) {
+        listButtonEdit[index].addEventListener('click', (e) => {
+            // console.log(index);
+            let parentElementCourse = e.target.parentElement.parentElement;
+            let firstLinkPicture = parentElementCourse.children[0].children[0].src;
+            let titleCourse = parentElementCourse.children[1].children[0].innerText;
+            let pictureCourse =  firstLinkPicture.split('Course%20online/')[1];
+
+            //TODO: change picture and content course
+            pictureElement.src = "/Course online/" + pictureCourse;
+            contentElement.value = titleCourse;
+
+            //TODO show from edit
+            let modelEdit = document.querySelector('#model-edit');
+
+            var valueScroll = window.scrollY;
+            console.log(valueScroll);
+            modelEdit.style.marginTop = valueScroll + "px";
+
+            //TODO hidden scroll body
+            document.querySelector('body').style.overflow = 'hidden';
+            //TODO show model create 
+            modelEdit.classList.toggle('hidden');
+        })
+    }
+
+    //TODO when click outside from eidt then hidden from
+    let bgEdit = document.querySelector('#model-edit');
+    if(bgEdit) {
+        bgEdit.onclick = (e) => {
+            if(e.target.matches('#model-edit')) {
+                document.querySelector('body').style.overflow = 'scroll';
+                bgEdit.classList.add('hidden');
+            }
+        }
+    }
+}, 1000)
