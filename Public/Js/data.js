@@ -23,7 +23,7 @@ let listCourse = document.querySelector('#list-course');
 
 if(listCourse != undefined) {
     var data = firebase.database().ref().child('Course');
-
+    var arr = {}
     data.on('value', (snap) => {
         var course = snap.val(); 
         for (const key in course) {
