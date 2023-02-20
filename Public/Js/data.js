@@ -75,7 +75,9 @@ if(listCourseAdmin != undefined) {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit totam</p>
                 </td>
                 <td class="buttonTable">
-                    <button class="buttonTable_detail">Chi tiết</button>
+                    <a href="?atc=${course[key].ID}">
+                        <button class="buttonTable_detail">Chi tiết</button>
+                    </a>
                     <button class="buttonTable_edit btn-edit">Chỉnh sửa</button>
                 </td>
             </tr>`;
@@ -97,7 +99,7 @@ if(listCourseAdmin != undefined) {
         })
         let idCourse = parseInt(countCourse) + 1
         var dataUpload = firebase.database().ref('Course/' + idCourse);
-        if(idCourse != undefined && srcImg.value.split('fakepath\\')[1] != undefined) {
+        if(valueName.value != undefined && srcImg.value.split('fakepath\\')[1] != undefined) {
             dataUpload.set({
                 ID: "00" + (parseInt(idCourse) + 1),
                 nameCourse: valueName.value,
@@ -110,18 +112,48 @@ if(listCourseAdmin != undefined) {
 
         window.location.reload();
     });
+
+    //TODO: xóa dữ liệu trên firebase
+    let btnDeleteCourse = document.querySelector('#Delete');
+    btnDeleteCourse.addEventListener('click', (e) => {
+        e.preventDefault();
+        let idCourse = btnDeleteCourse.value;
+        firebase.database().ref('Course/' + idCourse).remove();
+        window.location.reload();
+    });
+
+    //TODO: sửa dữ liệu trong firebase
+    let btnUpdate = document.querySelector("#update");
+    btnUpdate.addEventListener('click', (e) => {
+        e.preventDefault();
+        let idCourse = document.querySelector('.updateCourse').value;
+        let nameCourse = document.querySelector("#titleCourse").value;
+        let imgCourse = document.querySelector("#fileimg").value.split('fakepath\\')[1];
+
+        var dataUpdate = firebase.database().ref('Course/' + idCourse);
+        dataUpdate.set({
+            ID: "00" + idCourse,
+            nameCourse: nameCourse,
+            img: imgCourse == undefined ? document.querySelector("#fileimg").dataset.customValue : "Public/Picture/" + imgCourse,
+            numberOfUser: "96966"
+        });
+
+        alert("Chỉnh sửa thành công")
+        window.location.reload();
+    });
 }
 
 // TODO: chi tiết khóa học
 var currentHref = window.location.href.split('atc=')[1];
 let titleCourse = document.querySelector("#title-course");
+let CourseAdmin = document.querySelector("#listCourse");
 
-if(titleCourse != undefined) {
+if(titleCourse != undefined || CourseAdmin != undefined) {
     let idCourse = firebase.database().ref().child('Course');
     idCourse.on('value', (snap) => {
         let _intitle = snap.val();
         for (const key in _intitle) {
-            if(currentHref == _intitle[key].ID) {
+            if(currentHref == _intitle[key].ID && titleCourse) {
                 titleCourse.innerHTML = _intitle[key].nameCourse;
             }
         }
@@ -173,24 +205,27 @@ if(titleCourse != undefined) {
                     }
                 }
 
-                // TODO: hiện thi video khi click vào bài học
-                let iframeVideo = document.querySelector("#VideoLesson");
-                let title = document.querySelector("#titleTextVideo");
+                if(titleCourse) {
+                    // TODO: hiện thi video khi click vào bài học
+                    let iframeVideo = document.querySelector("#VideoLesson");
+                    let title = document.querySelector("#titleTextVideo");
 
-                // TODO hiện thị video và tiêu đề đầu tiên khi click vào khóa học
-                let firstVideo = elementCourse[0].firstChild.getAttribute("value");
-                let firstTitle = elementCourse[0].firstChild.innerText;
-                // console.log(elementCourse[0].firstChild.children[1].innerText);
-                iframeVideo.src = firstVideo;
-                title.innerHTML = firstTitle;
+                    // TODO hiện thị video và tiêu đề đầu tiên khi click vào khóa học
+                    let firstVideo = elementCourse[0].firstChild.getAttribute("value");
+                    let firstTitle = elementCourse[0].firstChild.innerText;
+                    // console.log(elementCourse[0].firstChild.children[1].innerText);
+                    
+                    iframeVideo.src = firstVideo;
+                    title.innerHTML = firstTitle;
 
-                for (let index = 0; index < elementCourse.length; index++) {
-                    let arrayLesson = elementCourse[index].children;
-                    for (let i = 0; i < arrayLesson.length; i++) {
-                        arrayLesson[i].addEventListener('click', () => {
-                            iframeVideo.src = arrayLesson[i].getAttribute("value");
-                            title.innerText = arrayLesson[i].innerText;
-                        })
+                    for (let index = 0; index < elementCourse.length; index++) {
+                        let arrayLesson = elementCourse[index].children;
+                        for (let i = 0; i < arrayLesson.length; i++) {
+                            arrayLesson[i].addEventListener('click', () => {
+                                iframeVideo.src = arrayLesson[i].getAttribute("value");
+                                title.innerText = arrayLesson[i].innerText;
+                            })
+                        }
                     }
                 }
 
@@ -204,8 +239,10 @@ if(titleCourse != undefined) {
                             boxCourse[index].lastElementChild.classList.toggle('rote');
                         })
                     }else if(index == 1) {
-                        boxCourse[1].classList.toggle('hidden');
-                        boxCourse[0].lastElementChild.classList.toggle('rote');
+                        if(titleCourse) {
+                            boxCourse[1].classList.toggle('hidden');
+                            boxCourse[0].lastElementChild.classList.toggle('rote');
+                        }
                     }
                 };
 

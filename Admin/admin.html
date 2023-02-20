@@ -188,6 +188,29 @@
                 <table border="0" id="contentTable"></table>
             </div>
         </div>
+        <div id="listCourse">
+            <div class="main-content_titleAdmin">
+                <h2 class="main-content_titleAdmin_text">Course Management</h2>
+                <!-- <button id="btn-create" class="main-content_titleAdmin-button-create">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path>
+                    </svg>
+                    <div class="main-content_titleAdmin-button-create-content">Create</div>
+                </button> -->
+            </div>
+            <div class="main-content_tableCourse">
+                <div class="main-course-right"  style="width: 45%;">
+                    <div class="main-course-right-listCourse">
+                        <div class="main-course-right-listCourse-contentLession">
+                            Nội dung khóa học
+                        </div>
+                        <div class="main-course-right-listCourse-boxCourse">
+                            <div id="Show-listCourse" class="listCourseShow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Model create from -->
     <div id="model-cret" class="model-create hidden">
@@ -208,7 +231,7 @@
             </div>
         </form>
     </div>
-    <!-- Model create from -->
+    <!-- Model edit from -->
     <div id="model-edit" class="model-create hidden">
         <form class="model-create-fromInput">
             <div class="model-create-fromInput_boxType">
@@ -221,13 +244,13 @@
                 <div class="model-create-fromInput_contentCourse_titleInput">
                     <!-- <div class="model-create-fromInput_contentCourse_titleInput_title">Name course</div> -->
                     <input id="titleCourse" type="text">
-                    <input type="file">
+                    <input id="fileimg" type="file">
                 </div>
             </div>
             <div class="model-create-fromInput_boxType">
                 <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                    <button class="model-create-fromInput_boxType_btnEdit">Done</button>
-                    <button style="background-color: rgb(252, 105, 105);" class="model-create-fromInput_boxType_btnEdit">Delete</button>
+                    <button id="update" class="model-create-fromInput_boxType_btnEdit updateCourse">Done</button>
+                    <button id="Delete" style="background-color: rgb(252, 105, 105);" class="model-create-fromInput_boxType_btnEdit">Delete</button>
                 </div>
             </div>
         </form>

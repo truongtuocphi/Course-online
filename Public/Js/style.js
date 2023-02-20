@@ -74,6 +74,7 @@ setTimeout(()=> {
     let listButtonEdit = document.querySelectorAll('.btn-edit');
     let pictureElement = document.querySelector('#pictureCourse');
     let contentElement = document.querySelector("#titleCourse");
+    let bannerElement = document.querySelector('#fileimg');
 
     //TODO add event click button
     for (let index = 0; index < listButtonEdit.length; index++) {
@@ -83,22 +84,30 @@ setTimeout(()=> {
             let firstLinkPicture = parentElementCourse.children[0].children[0].src;
             let titleCourse = parentElementCourse.children[1].children[0].innerText;
             let pictureCourse =  firstLinkPicture.split('Course%20online/')[1];
-
+  
             //TODO: change picture and content course
             pictureElement.src = "/Course online/" + pictureCourse;
             contentElement.value = titleCourse;
+            bannerElement.dataset.customValue = pictureCourse;
 
             //TODO show from edit
             let modelEdit = document.querySelector('#model-edit');
 
             var valueScroll = window.scrollY;
-            console.log(valueScroll);
+            // console.log(valueScroll);
             modelEdit.style.marginTop = valueScroll + "px";
 
             //TODO hidden scroll body
             document.querySelector('body').style.overflow = 'hidden';
+            
             //TODO show model create 
             modelEdit.classList.toggle('hidden');
+
+            //TODO add id value input
+            let id = document.querySelector('#Delete');
+            let idUpdate = document.querySelector('#update');
+            id.value = index
+            idUpdate.value = index
         })
     }
 
