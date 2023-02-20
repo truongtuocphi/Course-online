@@ -191,22 +191,70 @@
         <div id="listCourse">
             <div class="main-content_titleAdmin">
                 <h2 class="main-content_titleAdmin_text">Course Management</h2>
-                <!-- <button id="btn-create" class="main-content_titleAdmin-button-create">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path>
-                    </svg>
-                    <div class="main-content_titleAdmin-button-create-content">Create</div>
-                </button> -->
             </div>
-            <div class="main-content_tableCourse">
+            <div class="main-content_tableCourse" style="display: flex; justify-content: space-between;">
                 <div class="main-course-right"  style="width: 45%;">
                     <div class="main-course-right-listCourse">
-                        <div class="main-course-right-listCourse-contentLession">
-                            Nội dung khóa học
+                        <div class="main-course-right-listCourse-contentLession boxstyle">
+                            <div>Nội dung khóa học</div>
+                            <button class="btn-admin-create">Thêm</button>
                         </div>
                         <div class="main-course-right-listCourse-boxCourse">
                             <div id="Show-listCourse" class="listCourseShow"></div>
                         </div>
+                    </div>
+                </div>
+                <div id="listModel">
+                    <div class="create-sesion hidden">
+                        <form action="">
+                            <div class="create-sesion_title">
+                                Chương bài học
+                            </div>
+                            <div class="create-sesion_content">
+                                <label for="">Tên bài học</label>
+                                <input type="text" id="sesionCourse">
+                            </div>
+                            <div class="create-sesion_content">
+                                <button class="createCourseAdmin">Tạo mới</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="create-sesion hidden">
+                        <form action="">
+                            <div class="create-sesion_title">
+                                Thêm bài học
+                            </div>
+                            <div class="create-sesion_content">
+                                <label for="">Tên bài học</label>
+                                <input type="text">
+                            </div>
+                            <div class="create-sesion_content">
+                                <label for="">Video</label>
+                                <input type="text">
+                            </div>
+                            <div class="create-sesion_content">
+                                <button>Tạo mới</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="create-sesion hidden">
+                        <form action="">
+                            <div class="create-sesion_title">
+                                Chỉnh sửa bài học
+                            </div>
+                            <div class="create-sesion_content">
+                                <label for="">Tên bài học</label>
+                                <input type="text">
+                            </div>
+                            <div class="create-sesion_content">
+                                <label for="">Video</label>
+                                <input type="text">
+                            </div>
+                            <div class="create-sesion_content">
+                                <button>Sửa</button>
+                                <button>Xóa</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

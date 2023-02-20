@@ -122,3 +122,36 @@ setTimeout(()=> {
         }
     }
 }, 1000)
+
+//TODO: show from admin
+let listFrom = document.querySelectorAll('.create-sesion');
+let btnCreateSesion = document.querySelector('.btn-admin-create');
+
+// console.log(listFrom);
+if(btnCreateSesion) {
+    btnCreateSesion.addEventListener('click', () => {
+        listFrom[0].classList.remove('hidden');
+        listFrom[1].classList.add('hidden');
+        listFrom[2].classList.add('hidden');
+    })
+}
+
+setTimeout(() => {
+    let btnAddCourse = document.querySelectorAll('.btn-editCourse');
+    for (let index = 0; index < btnAddCourse.length; index++) {
+        btnAddCourse[index].addEventListener('click', () => {
+            listFrom[1].classList.remove('hidden');
+            listFrom[0].classList.add('hidden');
+            listFrom[2].classList.add('hidden');
+        })
+    }
+    
+    let btnEditCourse = document.querySelectorAll('.editCourseAdmin');
+    for (let index = 0; index < btnEditCourse.length; index++) {
+        btnEditCourse[index].addEventListener('click', () => {
+            listFrom[2].classList.remove('hidden');
+            listFrom[1].classList.add('hidden');
+            listFrom[0].classList.add('hidden');
+        })
+    }
+}, 1000)

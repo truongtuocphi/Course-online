@@ -23,6 +23,23 @@ a {
     }
 }
 
+.boxstyle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-admin-create {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 5px 20px;
+    background-color: #2563EB;
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
 body {
     position: relative;
     height: 100vh;
@@ -942,6 +959,24 @@ body {
                 }
                 &-contentLession {
                     background-color: white;
+                    .btn-editCourse {
+                        width: 100%;
+                        line-height: 40px;
+                        // padding: 0 28px 0 28px;
+                        button {
+                            cursor: pointer;
+                            width: 100%;
+                            line-height: 40px;
+                            background-color: transparent;
+                            border: none;
+                            font-size: 16px;
+                            color: $colorText;
+                            font-weight: 600;
+                            &:hover {
+                                background-color: #c7c7c771;
+                            }
+                        }
+                    }
                     &-content {
                         cursor: pointer;
                         padding-left: 28px;
@@ -964,6 +999,12 @@ body {
                         }
                         &:hover {
                             background-color: #EAECFA;
+                        }
+                        i {
+                            color: $colorText;
+                            &:hover {
+                                color: #4c8ffc;
+                            }
                         }
                     }
                 }
@@ -1103,6 +1144,54 @@ body {
                 font-weight: 700;
                 border-radius: 8px;
             }
+        }
+    }
+}
+
+//TODO from admin
+.create-sesion {
+    width: 380px;
+    form {
+        width: inherit;
+        height: inherit;
+        background-color: #F0F2F5;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    &_title {
+        font-weight: 700;
+        font-size: 23px;
+        color: $colorText;
+        opacity: 80%;
+    }
+
+    &_content {
+        margin-top: 20px;
+        label {
+            display: block;
+            color: $colorText;
+            opacity: 80%;
+        }
+        input {
+            width: 100%;
+            padding: 5px 20px;
+            margin-top: 10px;
+            line-height: 25px;
+            font-size: 18px;
+            border: 1px solid rgb(211, 211, 211);
+            border-radius: 8px;
+            outline: none;
+        }
+        button {
+            cursor: pointer;
+            padding: 3px 15px;
+            line-height: 25px;
+            background-color: #10B981;
+            color: white;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-radius: 8px;
         }
     }
 }

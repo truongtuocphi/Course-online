@@ -99,12 +99,18 @@ if(listCourseAdmin != undefined) {
         })
         let idCourse = parseInt(countCourse) + 1
         var dataUpload = firebase.database().ref('Course/' + idCourse);
+        var dataUpload2 = firebase.database().ref('videoClassification/' + idCourse);
         if(valueName.value != undefined && srcImg.value.split('fakepath\\')[1] != undefined) {
             dataUpload.set({
                 ID: "00" + (parseInt(idCourse) + 1),
                 nameCourse: valueName.value,
                 img: "Public/Picture/" + srcImg.value.split('fakepath\\')[1],
                 numberOfUser: "96966"
+            });
+
+            dataUpload2.set({
+                ID: "00" + (parseInt(idCourse) + 1),
+                ListCourse: []
             })
         }else {
             alert("Không thể tạo mới. vui lòng thử lại");
@@ -129,7 +135,7 @@ if(listCourseAdmin != undefined) {
         let idCourse = document.querySelector('.updateCourse').value;
         let nameCourse = document.querySelector("#titleCourse").value;
         let imgCourse = document.querySelector("#fileimg").value.split('fakepath\\')[1];
-
+        console.log(idCourse);
         var dataUpdate = firebase.database().ref('Course/' + idCourse);
         dataUpdate.set({
             ID: "00" + idCourse,
@@ -141,6 +147,32 @@ if(listCourseAdmin != undefined) {
         alert("Chỉnh sửa thành công")
         window.location.reload();
     });
+}
+
+//TODO: chi tiết khóa học thêm dữ liệu 
+let createNewCourse = document.querySelector('.createCourseAdmin');
+if(createNewCourse) {
+    createNewCourse.addEventListener('click', (e) => {
+        e.preventDefault()
+        let valueInput = document.querySelector('#sesionCourse').value; 
+        var currentHref = window.location.href.split('atc=')[1];
+        var dataCreate = firebase.database().ref('videoClassification');
+
+        let idCourse = 0
+        dataCreate.on('value', (snap) => {
+            let dataValue = snap.val();
+            for (const key in dataValue) {
+                if(currentHref == dataValue[key].ID) {
+                    idCourse = key;
+                }
+            }
+        });
+
+        var dataUpdate = firebase.database().ref('videoClassification/' + idCourse + '/ListCourse/' + 0);
+        dataUpdate.on('value', (snap) => {
+            console.log(snap.val());
+        })
+    })
 }
 
 // TODO: chi tiết khóa học
@@ -170,38 +202,61 @@ if(titleCourse != undefined || CourseAdmin != undefined) {
                 var arrayCourse = valueListCourse[index].ListCourse;
                 let parentElemnt = document.querySelector("#Show-listCourse");
                 let countTitle = -1;
-                for (let index = 0; index < arrayCourse.length * 2; index++) {
-                    if(index % 2 == 0) {
-                        countTitle++
-                        parentElemnt.innerHTML +=
-                        `<div class="main-course-right-listCourse-boxCourse-boxLession">
-                            <div class="main-course-right-listCourse-boxCourse-boxLession-title">
-                                ${arrayCourse[countTitle].TitleSesion}
-                            </div>
-                            <i class="fa-solid fa-chevron-down iconDown"></i>
-                        </div>`
-                    }else {
-                        parentElemnt.innerHTML +=
-                        `<div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden"></div>`
+                if(arrayCourse != undefined) {
+                    for (let index = 0; index < arrayCourse.length * 2; index++) {
+                        if(index % 2 == 0) {
+                            countTitle++
+                            parentElemnt.innerHTML +=
+                            `<div class="main-course-right-listCourse-boxCourse-boxLession">
+                                <div class="main-course-right-listCourse-boxCourse-boxLession-title">
+                                    ${arrayCourse[countTitle].TitleSesion}
+                                </div>
+                                <i class="fa-solid fa-chevron-down iconDown"></i>
+                            </div>`
+                        }else {
+                            parentElemnt.innerHTML +=
+                            `<div class="main-course-right-listCourse-boxCourse-contentLession contentLession hidden"></div>`
+                        }
                     }
                 }
                 let elementCourse = document.querySelectorAll('.contentLession');
                 let count = -1;
-                for (let index = 0; index < arrayCourse.length; index++) {
-                    for (let i = 0; i < arrayCourse[index].Video.length; i++) {
-                        // console.log(i);
-                        if(i == 0) {
-                            count++;
+                if(arrayCourse != undefined) {
+                    for (let index = 0; index < arrayCourse.length; index++) {
+                        if(arrayCourse[index].Video != undefined) {
+                            for (let i = 0; i < arrayCourse[index].Video.length; i++) {
+                                if(i == 0) {
+                                    count++;
+                                }
+        
+                                // console.log(elementCourse[count])
+                                elementCourse[count].innerHTML +=
+                                `<div class="main-course-right-listCourse-boxCourse-contentLession-content videoLesson" value="${arrayCourse[index].Video[i].VideoLesson}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">${arrayCourse[index].Video[i].LessonTitle}</div>
+                                </div>`
+                                // console.log(arrayCourse[index].Video[i].VideoLesson);
+                            }
                         }
-                        // console.log(elementCourse[count])
-                        elementCourse[count].innerHTML +=
-                        `<div class="main-course-right-listCourse-boxCourse-contentLession-content videoLesson" value="${arrayCourse[index].Video[i].VideoLesson}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 mr-2">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="main-course-right-listCourse-boxCourse-contentLession-content-title">${arrayCourse[index].Video[i].LessonTitle}</div>
-                        </div>`
-                        // console.log(arrayCourse[index].Video[i].VideoLesson);
+                    }
+                }
+
+                if(CourseAdmin) {
+                    for (let index = 0; index < elementCourse.length; index++) {
+                        let newDiv = document.createElement('div');
+                        let newBtn = document.createElement('button');
+                        newDiv.classList.add('btn-editCourse');
+                        newBtn.innerText = "Thêm mới"
+                        
+                        newDiv.appendChild(newBtn)
+                        elementCourse[index].appendChild(newDiv);
+                    }
+
+                    let partentBoxVideo = document.querySelectorAll('.videoLesson');
+                    for (let index = 0; index < partentBoxVideo.length; index++) {
+                        partentBoxVideo[index].innerHTML += `<i style="margin-right: 28px; font-size: 20px;" class="fa-solid fa-pen-to-square editCourseAdmin"></i>`
                     }
                 }
 
@@ -231,7 +286,7 @@ if(titleCourse != undefined || CourseAdmin != undefined) {
 
                 // TODO: hiện thị các bài học trong mỗi section
                 const boxCourse = document.querySelector('.listCourseShow').children;
-
+                
                 for (let index = 0; index < boxCourse.length; index++) {
                     if(index % 2 == 0) {
                         boxCourse[index].addEventListener('click', () => {
