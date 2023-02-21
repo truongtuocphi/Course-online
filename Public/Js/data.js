@@ -83,6 +83,7 @@ if(listCourseAdmin != undefined) {
             </tr>`;
         }
     });
+
     //TODO: thêm dữ liệu vào firebase
     let btnCreate = document.querySelector('#createCourse');
     let valueName = document.querySelector("#nameCourse");
@@ -134,8 +135,9 @@ if(listCourseAdmin != undefined) {
         e.preventDefault();
         let idCourse = document.querySelector('.updateCourse').value;
         let nameCourse = document.querySelector("#titleCourse").value;
+
         let imgCourse = document.querySelector("#fileimg").value.split('fakepath\\')[1];
-        console.log(idCourse);
+
         var dataUpdate = firebase.database().ref('Course/' + idCourse);
         dataUpdate.set({
             ID: "00" + idCourse,
@@ -155,8 +157,9 @@ if(createNewCourse) {
     createNewCourse.addEventListener('click', (e) => {
         e.preventDefault()
         let valueInput = document.querySelector('#sesionCourse').value; 
-        var currentHref = window.location.href.split('atc=')[1];
         var dataCreate = firebase.database().ref('videoClassification');
+        var currentHref = window.location.href.split('atc=')[1];
+        createNewCourse.value = currentHref.split('00')[1];
 
         let idCourse = 0
         dataCreate.on('value', (snap) => {
@@ -167,10 +170,10 @@ if(createNewCourse) {
                 }
             }
         });
-
+        
         var dataUpdate = firebase.database().ref('videoClassification/' + idCourse + '/ListCourse/' + 0);
         dataUpdate.on('value', (snap) => {
-            console.log(snap.val());
+            // console.log(snap.val());
         })
     })
 }
