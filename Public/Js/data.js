@@ -75,12 +75,25 @@ if(listCourseAdmin != undefined) {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit totam</p>
                 </td>
                 <td class="buttonTable">
-                    <a href="?atc=${course[key].ID}">
+                    <a href="/Course online/Admin/listCourse.html?atc=${course[key].ID}">
                         <button class="buttonTable_detail">Chi tiết</button>
                     </a>
                     <button class="buttonTable_edit btn-edit">Chỉnh sửa</button>
                 </td>
             </tr>`;
+        }
+        let btnDeltail = document.querySelectorAll(".buttonTable_detail");
+        let fromAdmin1 = document.querySelector('#showCourse');
+        let fromAdmin2 = document.querySelector('#listCourse');
+        for (let index = 0; index < btnDeltail.length; index++) {
+            btnDeltail[index].addEventListener('click', (e) => {
+                // console.log(index);
+                // e.preventDefault();
+                // localStorage.setItem('hidden', 'hidden');
+                // console.log(localStorage.getItem('hidden'));
+                fromAdmin1.classList.add(localStorage.getItem('hidden'));
+                fromAdmin2.classList.remove(localStorage.getItem('hidden'));
+            })
         }
     });
 
@@ -167,14 +180,16 @@ if(createNewCourse) {
             for (const key in dataValue) {
                 if(currentHref == dataValue[key].ID) {
                     idCourse = key;
+                    // console.log(idCourse);
+                    // console.log("00" + (parseInt(idCourse) + 1));
+                    var dataUpdate = firebase.database().ref('/ListCourse');
+                    dataUpdate.on('value', (snap) => {
+                        console.log(snap.val());
+                    })
                 }
             }
         });
-        
-        var dataUpdate = firebase.database().ref('videoClassification/' + idCourse + '/ListCourse/' + 0);
-        dataUpdate.on('value', (snap) => {
-            // console.log(snap.val());
-        })
+
     })
 }
 
