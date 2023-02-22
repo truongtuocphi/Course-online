@@ -151,7 +151,7 @@ if(listCourseAdmin != undefined) {
 
         let imgCourse = document.querySelector("#fileimg").value.split('fakepath\\')[1];
 
-        var dataUpdate = firebase.database().ref('Course/' + idCourse);
+        let dataUpdate = firebase.database().ref('Course/' + idCourse);
         dataUpdate.set({
             ID: "00" + idCourse,
             nameCourse: nameCourse,
@@ -168,28 +168,189 @@ if(listCourseAdmin != undefined) {
 let createNewCourse = document.querySelector('.createCourseAdmin');
 if(createNewCourse) {
     createNewCourse.addEventListener('click', (e) => {
-        e.preventDefault()
+        e.preventDefault();
         let valueInput = document.querySelector('#sesionCourse').value; 
-        var dataCreate = firebase.database().ref('videoClassification');
-        var currentHref = window.location.href.split('atc=')[1];
+        let dataCreate = firebase.database().ref('videoClassification');
+        let currentHref = window.location.href.split('atc=')[1];
+        let flag = 0;
+        let flag1 = 0;
+        let idCourse = 0
         createNewCourse.value = currentHref.split('00')[1];
 
-        let idCourse = 0
-        dataCreate.on('value', (snap) => {
+        dataCreate.once('value', (snap) => {
             let dataValue = snap.val();
+            console.log(dataValue); 
             for (const key in dataValue) {
                 if(currentHref == dataValue[key].ID) {
+                    // console.log(key);
                     idCourse = key;
                     // console.log(idCourse);
                     // console.log("00" + (parseInt(idCourse) + 1));
-                    var dataUpdate = firebase.database().ref('/ListCourse');
-                    dataUpdate.on('value', (snap) => {
-                        console.log(snap.val());
-                    })
+                    if(dataValue[key].ListCourse == undefined) {
+                        flag++;
+                        break;
+                    }else {
+                        // console.log("k");
+                        flag1++;
+                    }
                 }
             }
         });
+        // console.log(flag);
+        if(flag > 0) {
+            const dataUpdate_1 = firebase.database().ref('videoClassification/' + idCourse + '/ListCourse/0');
+            dataUpdate_1.set({
+                TitleSesion: valueInput,
+                Video: []
+            })
+        }
+        if(flag1 > 0) {
+            let idListCourseVdieo = 0;
+            var dataVideoCourse = firebase.database().ref('videoClassification/' + idCourse).child('ListCourse');
+            // dataVideoCourse.once('value', (snap) => {
+            //     let dataListCourse = snap.val();
+            //     for (const key in  dataListCourse) {
+            //         idListCourseVdieo = key;
+            //     }
+            // })
 
+            // let dataUpdate_2 = firebase.database().ref('videoClassification/' + idCourse + '/ListCourse/' + (parseInt(idListCourseVdieo) + 1));
+            // dataUpdate_2.set({
+            //     TitleSesion: valueInput,
+            //     Video: []
+            // })
+            dataVideoCourse.once('value').then((snap) => {
+                const dataListCourse = snap.val();
+                for (const key in dataListCourse) {
+                  idListCourseVdieo = key;
+                }
+                const dataUpdate_2 = firebase.database().ref('videoClassification/' + idCourse + '/ListCourse/' + (parseInt(idListCourseVdieo) + 1));
+                dataUpdate_2.set({
+                  TitleSesion: valueInput,
+                  Video: []
+                });
+              });
+        }
+        window.location.reload();
+    })
+}
+
+//TODO: thêm video vào chi tiết khóa học
+let createNewVideo = document.querySelector("#createNewVideo");
+if(createNewVideo) {
+    let valueKey = 0;
+    setTimeout(() => {
+        let btnCreateNew = document.querySelectorAll('.btn-editCourse');
+        // console.log(btnCreateNew);
+        for (let index = 0; index < btnCreateNew.length; index++) {
+            btnCreateNew[index].addEventListener('click', () => {
+                valueKey = btnCreateNew[index].children[0].value;
+            })
+        } 
+    }, 1000)
+    createNewVideo.addEventListener('click', (e) => {
+        e.preventDefault();
+        let currentHref = window.location.href.split('atc=')[1];
+        let valueInputName = document.querySelector("#nameVideoCourse").value;
+        let valueInputLink = document.querySelector("#linkVideoCourse").value;
+        let data = firebase.database().ref().child('videoClassification');
+        let flag = 0;
+        let keyClass = 0;
+        data.on('value', (snap) => {
+            let valueData = snap.val();
+            for (const key in valueData) {
+                let idVideoClass = valueData[key].ID;
+                if(currentHref == idVideoClass) {
+                    keyClass = key;
+                    flag++;
+                }
+            }
+        })
+        if(flag > 0) {
+            let ListVideo1 = firebase.database().ref('videoClassification/' + keyClass + '/ListCourse/' + valueKey + '/Video');
+            let firtData = '';
+            ListVideo1.on('value', (snap) => {
+                firtData = snap.val();
+            });
+            
+            if(firtData == null) {
+                let ListVideo = firebase.database().ref('videoClassification/' + keyClass + '/ListCourse/' + valueKey + '/Video/0');
+                ListVideo.set({
+                    LessonTitle: valueInputName,
+                    VideoLesson: valueInputLink
+                });
+            }else {
+                let lastId = firtData.length;
+                let ListVideo = firebase.database().ref('videoClassification/' + keyClass + '/ListCourse/' + valueKey + '/Video/' + lastId);
+                ListVideo.set({
+                    LessonTitle: valueInputName,
+                    VideoLesson: valueInputLink
+                });
+            }
+
+            setTimeout(() => {
+                let btnCreateNew = document.querySelectorAll('.btn-editCourse');
+                // console.log(btnCreateNew);
+                for (let index = 0; index < btnCreateNew.length; index++) {
+                    btnCreateNew[index].addEventListener('click', () => {
+                        btnCreateNew[index].style.display = 'none'
+                    })
+                } 
+            }, 1000)
+        }
+        window.location.reload()
+    })
+}
+
+//TODO: sửa xóa chi tiết khóa học
+let btnEditCourse = document.querySelector('#editAllCourse');
+if(btnEditCourse) {
+
+    let valueKey = 0;
+    setTimeout(() => {
+        let btnCreateNew = document.querySelectorAll('.editCourseAdmin');
+        // console.log(btnCreateNew);
+        for (let index = 0; index < btnCreateNew.length; index++) {
+            btnCreateNew[index].addEventListener('click', () => {
+                valueKey = btnCreateNew[index].getAttribute('value');
+            })
+        } 
+    }, 1000)
+    btnEditCourse.addEventListener('click', (e) => {
+        e.preventDefault()
+        let currentHref = window.location.href.split('atc=')[1];
+        let valueInputName = document.querySelector(".newNameCourse").value;
+        let valueInputLink = document.querySelector("#newNameVideo").value;
+        let data = firebase.database().ref().child('videoClassification');
+        let flag = 0;
+        let keyClass = 0;
+        data.on('value', (snap) => {
+            let valueData = snap.val();
+            for (const key in valueData) {
+                let idVideoClass = valueData[key].ID;
+                if(currentHref == idVideoClass) {
+                    keyClass = key;
+                    flag++;
+                }
+            }
+        })
+
+        if(flag > 0) {
+            let ListVideo1 = firebase.database().ref('videoClassification/' + keyClass + '/ListCourse/' + valueKey + '/Video');
+            let firtData = '';
+            ListVideo1.on('value', (snap) => {
+                firtData = snap.val();
+            });
+
+            let lastId = valueKey;
+            console.log(lastId);
+            let ListVideo = firebase.database().ref('videoClassification/' + keyClass + '/ListCourse/' + valueKey + '/Video/' + lastId);
+            ListVideo.set({
+                LessonTitle: valueInputName,
+                VideoLesson: valueInputLink
+            });
+            // window.location.reload()
+        }
     })
 }
 
@@ -246,7 +407,6 @@ if(titleCourse != undefined || CourseAdmin != undefined) {
                                 if(i == 0) {
                                     count++;
                                 }
-        
                                 // console.log(elementCourse[count])
                                 elementCourse[count].innerHTML +=
                                 `<div class="main-course-right-listCourse-boxCourse-contentLession-content videoLesson" value="${arrayCourse[index].Video[i].VideoLesson}">
@@ -267,6 +427,7 @@ if(titleCourse != undefined || CourseAdmin != undefined) {
                         let newBtn = document.createElement('button');
                         newDiv.classList.add('btn-editCourse');
                         newBtn.innerText = "Thêm mới"
+                        newBtn.value = index;
                         
                         newDiv.appendChild(newBtn)
                         elementCourse[index].appendChild(newDiv);
@@ -274,7 +435,7 @@ if(titleCourse != undefined || CourseAdmin != undefined) {
 
                     let partentBoxVideo = document.querySelectorAll('.videoLesson');
                     for (let index = 0; index < partentBoxVideo.length; index++) {
-                        partentBoxVideo[index].innerHTML += `<i style="margin-right: 28px; font-size: 20px;" class="fa-solid fa-pen-to-square editCourseAdmin"></i>`
+                        partentBoxVideo[index].innerHTML += `<i value=${index} style="margin-right: 28px; font-size: 20px;" class="fa-solid fa-pen-to-square editCourseAdmin"></i>`
                     }
                 }
 

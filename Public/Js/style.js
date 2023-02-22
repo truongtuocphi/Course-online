@@ -152,6 +152,16 @@ setTimeout(() => {
             listFrom[2].classList.remove('hidden');
             listFrom[1].classList.add('hidden');
             listFrom[0].classList.add('hidden');
+
+            let boxFirstValue = document.querySelector('.videoLesson');
+            let oldVideo = boxFirstValue.getAttribute('value');
+            let oldText = boxFirstValue.children[1].innerText;
+
+            let inputNameCourse = listFrom[2].children[0].children[1].children[1];
+            let inputVideoCourse = listFrom[2].children[0].children[2].children[1];
+
+            inputNameCourse.value = oldText;
+            inputVideoCourse.value = oldVideo;
         })
     }
 }, 1000)

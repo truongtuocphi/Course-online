@@ -174,20 +174,6 @@
         </div>
     </menu>
     <div class="main-content">
-        <!-- <div id="showCourse">
-            <div class="main-content_titleAdmin">
-                <h2 class="main-content_titleAdmin_text">Course Management</h2>
-                <button id="btn-create" class="main-content_titleAdmin-button-create">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path>
-                    </svg>
-                    <div class="main-content_titleAdmin-button-create-content">Create</div>
-                </button>
-            </div>
-            <div class="main-content_tableCourse">
-                <table border="0" id="contentTable"></table>
-            </div>
-        </div> -->
         <div id="listCourse">
             <div class="main-content_titleAdmin">
                 <h2 class="main-content_titleAdmin_text">Course Management</h2>
@@ -226,14 +212,14 @@
                             </div>
                             <div class="create-sesion_content">
                                 <label for="">Tên bài học</label>
-                                <input type="text">
+                                <input type="text" id="nameVideoCourse">
                             </div>
                             <div class="create-sesion_content">
                                 <label for="">Video</label>
-                                <input type="text">
+                                <input type="text" id="linkVideoCourse">
                             </div>
                             <div class="create-sesion_content">
-                                <button>Tạo mới</button>
+                                <button id="createNewVideo">Tạo mới</button>
                             </div>
                         </form>
                     </div>
@@ -244,15 +230,15 @@
                             </div>
                             <div class="create-sesion_content">
                                 <label for="">Tên bài học</label>
-                                <input type="text">
+                                <input type="text" class="newNameCourse">
                             </div>
                             <div class="create-sesion_content">
                                 <label for="">Video</label>
-                                <input type="text">
+                                <input type="text" id="newNameVideo">
                             </div>
                             <div class="create-sesion_content">
-                                <button>Sửa</button>
-                                <button>Xóa</button>
+                                <button id="editAllCourse">Sửa</button>
+                                <button id="deleteAllCourse">Xóa</button>
                             </div>
                         </form>
                     </div>
