@@ -148,7 +148,7 @@ setTimeout(() => {
     
     let btnEditCourse = document.querySelectorAll('.editCourseAdmin');
     for (let index = 0; index < btnEditCourse.length; index++) {
-        btnEditCourse[index].addEventListener('click', () => {
+        btnEditCourse[index].addEventListener('click', (e) => {
             listFrom[2].classList.remove('hidden');
             listFrom[1].classList.add('hidden');
             listFrom[0].classList.add('hidden');
@@ -162,6 +162,9 @@ setTimeout(() => {
 
             inputNameCourse.value = oldText;
             inputVideoCourse.value = oldVideo;
+
+            let valueBtn = e.target.parentElement.parentElement.lastChild.children[0].value;
+            btnEditCourse[index].setAttribute('value', valueBtn);
         })
     }
 }, 1000)
