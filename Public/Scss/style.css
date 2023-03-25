@@ -1013,13 +1013,11 @@ body::-webkit-scrollbar-thumb {
 
 .blockFrom {
   width: 100%;
-  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 120px;
-  padding-bottom: 60px;
 }
+
 .blockFrom-infrom {
   width: 454px;
   padding: 48px;
