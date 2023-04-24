@@ -1013,17 +1013,20 @@ body::-webkit-scrollbar-thumb {
 
 .blockFrom {
   width: 100%;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 120px;
+  padding-bottom: 60px;
 }
-
 .blockFrom-infrom {
   width: 454px;
   padding: 48px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 1px 1px 20px rgb(233, 233, 233);
+  margin-top: 10px;
 }
 .blockFrom-infrom_title {
   margin-bottom: 24px;
